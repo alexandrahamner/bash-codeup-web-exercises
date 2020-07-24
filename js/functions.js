@@ -101,7 +101,7 @@ function sayHello(name) {
         return a * b;
 
     }
-    console.log(calculateTip(.15,50).toFixed(2));
+    console.log("$" + calculateTip(.15,50).toFixed(2));
 
 
     /**
@@ -111,14 +111,11 @@ function sayHello(name) {
      * then display the dollar amount they should tip
      */
 
-    function calculateTip(a,b) {
-       return a * b;
-
-    }
 
     var bill = prompt("How much was the bill?");
     var tipPrecent = prompt("What tip percentage would you like to leave?");
-    alert("You should leave $" + (calculateTip(bill, tipPrecent)).toFixed(2) + " as a tip.");
+    var tipDecimal= parseFloat(tipPrecent) / 100;
+    alert("You should leave $" + (calculateTip(bill, tipDecimal)).toFixed(2) + " as a tip.");
 
 
     /**
@@ -136,10 +133,15 @@ function sayHello(name) {
      * > applyDiscount(45.99, 0.12) // 40.4712
      */
 
+
+    var originalPrice = 70;
+    var discountPercent = .46; // 46%
+
     function applyDiscount(a,b) {
-        return a * b
+        return a - (a * b);
 
     }
-    console.log("$" + applyDiscount(80, .3).toFixed(2));
+
+    console.log("Your new total is $" + (applyDiscount(originalPrice, discountPercent)).toFixed(2) + ".");
 
 })()
