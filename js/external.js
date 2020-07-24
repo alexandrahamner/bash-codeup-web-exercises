@@ -1,3 +1,6 @@
+"use strict";
+
+
 console.log("Hello from External JavaScript");
 alert("Welcome to my website!");
 var response = prompt("What is your favorite color?");
@@ -20,4 +23,20 @@ var googleRate = prompt("You also work at Google and you make $350 per hour. How
 var googleTotal = (googleRate * 350);
 var jobTotal = (fbTotal + amazonTotal + googleTotal);
 alert("Calculating your weekly paycheck... You earned $" + jobTotal.toFixed(2) + ".");
+
+
+alert("You are about to enroll in this course.");
+var classSize = prompt("What is the class size?");
+var classConflict = confirm("Are there no schedule conflicts?");
+var classConfirm = (classSize < 17) && (classConflict == true);
+alert ("Welcome to the class!");
+
+
+alert("Welcome to the Online Store!");
+prompt("How many items have you purchased?");
+confirm("Are you a Premium member?");
+confirm("Do you have an unexpired coupon?");
+alert("You are able to use this coupon!");
+
+
 
