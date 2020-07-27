@@ -19,22 +19,22 @@
      * console.logging the function's return value
      */
 
-    // function analyzeColor(colorName) {
-    //     if (colorName === "blue") {
-    //         return "Blue is the color of the sky.";
-    //
-    //     } else if (colorName === "red") {
-    //         return "Strawberries are red.";
-    //
-    //     } else if (colorName === "cyan") {
-    //         return "I don't know anything about cyan.";
-    //
-    //     } else {
-    //         return "I don't know anything about " + colorName + ".";
-    //     }
-    // }
+    function analyzeColor(colorName) {
+        if (colorName === "blue") {
+            return "Blue is the color of the sky.";
 
-    // console.log(analyzeColor("yellow"));
+        } else if (colorName === "red") {
+            return "Strawberries are red.";
+
+        } else if (colorName === "cyan") {
+            return "I don't know anything about cyan.";
+
+        } else {
+            return "I don't know anything about " + colorName + ".";
+        }
+    }
+
+    console.log(analyzeColor("yellow"));
 
 
 
@@ -62,25 +62,25 @@
      * TODO:
      * Refactor your above function to use a switch-case statement
      */
-    //
-    // function analyzeColor(colorName) {
-    //     switch(colorName) {
-    //         case "blue" :
-    //             return "Blue is the color of the sky.";
-    //             break;
-    //         case "red" :
-    //             return "Strawberries are red.";
-    //             break;
-    //         case "cyan" :
-    //             return "I don't know anything about cyan.";
-    //             break;
-    //         default:
-    //             return "I don't know anything about " + colorName + ".";
-    //
-    //     }
-    // }
-    //
-    //     console.log(analyzeColor(randomColor));
+
+    function analyzeColor(colorName) {
+        switch(colorName) {
+            case "blue" :
+                return "Blue is the color of the sky.";
+                break;
+            case "red" :
+                return "Strawberries are red.";
+                break;
+            case "cyan" :
+                return "I don't know anything about cyan.";
+                break;
+            default:
+                return "I don't know anything about " + colorName + ".";
+
+        }
+    }
+
+        console.log(analyzeColor(randomColor));
 
 
     /**
@@ -90,8 +90,8 @@
      * function to show it to the user.
      */
 
-    // var userColor = prompt("Quick! Enter a random color!");
-    // alert(analyzeColor(userColor));
+    var userColor = prompt("Quick! Enter a random color!");
+    alert(analyzeColor(userColor));
 
     /* ########################################################################## */
 
@@ -115,34 +115,34 @@
      * return value.
      */
 
-    // function calculateTotal(luckyNumber, originalPrice) {
-    //     if (luckyNumber === 0) {
-    //         var discountedPrice = originalPrice;
-    //         return discountedPrice;
-    //
-    //     } else if (luckyNumber === 1) {
-    //         var discountedPrice = originalPrice - (originalPrice * .10);
-    //         return discountedPrice;
-    //
-    //     } else if (luckyNumber === 2) {
-    //         var discountedPrice = originalPrice - (originalPrice * .25);
-    //         return discountedPrice;
-    //
-    //     } else if (luckyNumber === 3) {
-    //         var discountedPrice = originalPrice - (originalPrice * .35);
-    //         return discountedPrice;
-    //
-    //     } else if (luckyNumber === 4) {
-    //         var discountedPrice = originalPrice - (originalPrice * .50);
-    //         return discountedPrice;
-    //
-    //     } else if (luckyNumber === 5) {
-    //         var discountedPrice = originalPrice - (originalPrice * 1);
-    //         return discountedPrice;
-    //     }
-    // }
-    //
-    // console.log(calculateTotal(5, 100));
+    function calculateTotal(luckyNumber, originalPrice) {
+        if (luckyNumber === 0) {
+            var discountedPrice = originalPrice;
+            return discountedPrice;
+
+        } else if (luckyNumber === 1) {
+            var discountedPrice = originalPrice - (originalPrice * .10);
+            return discountedPrice;
+
+        } else if (luckyNumber === 2) {
+            var discountedPrice = originalPrice - (originalPrice * .25);
+            return discountedPrice;
+
+        } else if (luckyNumber === 3) {
+            var discountedPrice = originalPrice - (originalPrice * .35);
+            return discountedPrice;
+
+        } else if (luckyNumber === 4) {
+            var discountedPrice = originalPrice - (originalPrice * .50);
+            return discountedPrice;
+
+        } else if (luckyNumber === 5) {
+            var discountedPrice = originalPrice - (originalPrice * 1);
+            return discountedPrice;
+        }
+    }
+
+    console.log(calculateTotal(5, 100));
 
     /**
      * TODO:
@@ -152,12 +152,12 @@
      * price before the discount was, and what their price after the discount is.
      */
 // Generate a random number between 0 and 6
-//      var luckyNumber = Math.floor(Math.random() * 6);
-//
-//     var userOriginalBill = prompt("What was your total bill?");
-//     alert("Your lucky number is " + luckyNumber + "!");
-//     var discountedBill = calculateTotal(luckyNumber, userOriginalBill);
-//     alert("The price before the discount was: $" + userOriginalBill + ". And your new total is: $" + discountedBill.toFixed(2) + "!");
+    var luckyNumber = Math.floor(Math.random() * 6);
+
+    var userOriginalBill = prompt("What was your total bill?");
+    alert("Your lucky number is " + luckyNumber + "!");
+    var discountedBill = calculateTotal(luckyNumber, userOriginalBill);
+    alert("The price before the discount was: $" + userOriginalBill + ". And your new total is: $" + discountedBill.toFixed(2) + "!");
 
 
     /**
