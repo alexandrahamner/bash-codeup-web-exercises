@@ -113,8 +113,8 @@ function sayHello(name) {
 
 
     var bill = prompt("How much was the bill?");
-    var tipPrecent = prompt("What tip percentage would you like to leave?");
-    var tipDecimal= parseFloat(tipPrecent) / 100;
+    var tipPercent = prompt("What tip percentage would you like to leave?");
+    var tipDecimal= parseFloat(tipPercent) / 100;
     alert("You should leave $" + (calculateTip(bill, tipDecimal)).toFixed(2) + " as a tip.");
 
 
@@ -132,6 +132,7 @@ function sayHello(name) {
      *
      * > applyDiscount(45.99, 0.12) // 40.4712
      */
+
 
 
     var originalPrice = 70;
