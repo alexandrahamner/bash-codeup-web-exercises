@@ -144,6 +144,8 @@
 
     console.log(calculateTotal(5, 100));
 
+
+
     /**
      * TODO:
      * Uncomment the line below to generate a random number between 0 and 6.
@@ -154,7 +156,7 @@
 // Generate a random number between 0 and 6
     var luckyNumber = Math.floor(Math.random() * 6);
 
-    var userOriginalBill = prompt("What was your total bill?");
+    var userOriginalBill = parseFloat(prompt("What was your total bill?"));
     alert("Your lucky number is " + luckyNumber + "!");
     var discountedBill = calculateTotal(luckyNumber, userOriginalBill);
     alert("The price before the discount was: $" + userOriginalBill + ". And your new total is: $" + discountedBill.toFixed(2) + "!");
@@ -193,7 +195,7 @@
                     var numberPlusHundred = parseFloat(userNumber) + 100;
                     alert(userNumber + " + 100 = " + numberPlusHundred);
 
-                    if (parseFloat(userNumber) < 100) {
+                    if (parseFloat(userNumber) < 0) {
                         alert(userNumber + " is a negative number.");
                     } else {
                         alert(userNumber + " is a positive number.");
