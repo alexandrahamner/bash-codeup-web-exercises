@@ -14,6 +14,8 @@ function showMultiplicationTable(number) {
 }
 showMultiplicationTable(7);
 
+
+
 // 3.)
 
 for (var i = 1; i <= 10; i++) {
@@ -28,22 +30,28 @@ for (var i = 1; i <= 10; i++) {
 
 
 
-// // 4.)
+// 4.)
 
-    for(var i = 1; i <= 9; i++) {
-    var n = 0;
-    for (var k = 0; k < i; k++) {
-        n = i * Math.pow(10, k) + n;
-    }
-    console.log(n)
+// for(var i = 1; i <= 9; i++) {
+//     var n = 0;
+//     for (var k = 0; k < i; k++) {
+//         n = i * Math.pow(10, k) + n;
+//     }
+//     console.log(n)
+
+
+// Instructor's Solution for 4.)
+
+for(var z = 1 ; z <= 9; z++) {
+    console.log(z.toString().repeat(z));
 }
 
 
 
 // 5.)
 
-    for(var i = 100; i >= 5; i -= 5) {
-        console.log(i);
+for(var i = 100; i >= 5; i -= 5) {
+    console.log(i);
     }
 
 
