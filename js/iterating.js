@@ -71,13 +71,13 @@
         return numList[1];
     }
 
-    function third (array) {
+    function last (array) {
         return numList[numList.length - 1];
     }
 
     console.log(first(numList));
     console.log(second(numList));
-    console.log(third(numList));
+    console.log(last(numList));
 
 
 })();
