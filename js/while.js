@@ -17,21 +17,15 @@
 
         do {
             var conesBought = Math.floor(Math.random() * 5) + 1;
-            var remainingCones = amountToSell -= conesBought
-            console.log(remainingCones);
-            if (remainingCones !== 0) {
-                if (conesBought > amountToSell) {
-                    console.log("I cannot sell you " + conesBought + " I only have " + remainingCones);
-                    break;
-                } else {
-                    console.log(conesBought + " cones sold.");
-                }
+            amountToSell -= conesBought
+            if (amountToSell > conesBought) {
+                console.log(conesBought + " cones sold");
             } else {
-                console.log("Yay I have no more left!");
-                break;
+                console.log("Sorry, I can't sell you " + conesBought + " cones. I only have "
+                    + amountToSell + "...");
             }
+
         } while (amountToSell > 0);
-
-
+    console.log("Yay I sold all my cones!")
 
 }) ();
