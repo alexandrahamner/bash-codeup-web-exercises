@@ -11,7 +11,8 @@
      * console.log planetsArray to check your work
      */
 
-    // console.log(planetsArray);
+    planetsArray = planetsString.split("|");
+    console.log(planetsArray);
 
     /**
      * TODO:
@@ -24,4 +25,9 @@
      * string, and <li> tags around each planet.
      */
 
+    var planetsStr2 = planetsArray.join("<br>");
+    console.log(planetsStr2);
+
+    var planetsStr3 = "<ul>" + planetsArray.join("<li>") + "</ul>" ;
+    console.log(planetsStr3);
 })();
