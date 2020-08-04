@@ -66,7 +66,7 @@
                 var finalTotal = (shopper.amount - discount).toFixed(2);
                 console.log(shopper.name + ", you qualify for our 12% Discount Promotion!");
                 console.log("Your original total was $" + shopper.amount.toFixed(2) + ".");
-                console.log("You received a discount of $" + discount + " and your final price is $" + finalTotal);
+                console.log("You received a discount of $" + discount + " and your final total is $" + finalTotal);
             } else {
                 console.log("Sorry, " + shopper.name + " you do not qualify for the 12% promotion.");
                 console.log("Your total is $" + shopper.amount.toFixed(2) + ".");
@@ -160,7 +160,19 @@
     }
     console.log(bookList("The Bell Jar"));
 
+    // instructor's for loop example
 
+    // function loggingBooks(books) {
+    //     for (var x = 0 ; x < books.length ; x++) {
+    //         var book = books[x];
+    //         console.log("Book # " + (x + 1));
+    //         console.log("Title: " + (book.title));
+    //         console.log("Author: " + book.author.firstName + " " + book.author.lastName);
+    //         console.log("---");
+    //     }
+    // }
+    //
+    // loggingBooks(books);
 
     /**
      * Bonus:
@@ -173,14 +185,24 @@
      *   `showBookInfo` function.
      */
 
-    books.createBooks = function (x,y,z) {
-            return {title: x, author: {
-                firstName: y,
-                lastName: z
-                }
-            };
+    function createBook (title,authorFirstName,authorLastName,books) {
+        var newBook = {
+            title: title,
+            author: {
+                firstName : authorFirstName,
+                lastName : authorLastName,
+            }
+        }
+        books.push(newBook);
+        return books;
     }
-    console.log(books.createBooks("The Road","Cormac", "McCarthy"));
+
+    createBook("The Road","Cormac", "McCarthy",books);
+
+    bookList(books);
+
+
+
 
 
 
