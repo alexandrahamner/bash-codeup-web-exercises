@@ -32,7 +32,7 @@
      */
 
     person.sayHello = function () {
-        console.log("Hello from " + person.firstName + "!");
+        console.log("Hello from " + this.firstName + " " + this.lastName + "!");
     }
 
     person.sayHello();
@@ -146,16 +146,17 @@
      *      ...
      */
 
-    var bookList = function () {
+    var bookList = function (bookTitle) {
         books.forEach(function (book, index) {
-            console.log("Book # " + (index + 1));
-            console.log("Title: " + book.title);
-            console.log("Author: " + book.author.firstName + " " + book.author.lastName);
-            console.log("---");
+
+                console.log("Book # " + (index + 1));
+                console.log("Title: " + book.title);
+                console.log("Author: " + book.author.firstName + " " + book.author.lastName);
+                console.log("---");
 
         });
     }
-    console.log(bookList());
+    console.log(bookList("The Bell Jar"));
 
 
 
@@ -179,9 +180,7 @@
     }
     console.log(books.createBooks("The Road","Cormac", "McCarthy"));
 
-    books.showBookInfo = function (x) {
-        var userBookChoice = x
 
-    }
+
 
 })();
