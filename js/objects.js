@@ -58,21 +58,23 @@
         {name: 'George', amount: 320}
     ];
 
-    function promotion(shopper) {
-        var discount = (shopper.amount * .12);
-        var totalBill = (shopper.amount - discount);
-        if (shopper.amount < 200) {
-            console.log("Sorry, you do not qualify for the promotion.");
-            console.log("Your final cost is " + shopper.amount);
-        } else if (shopper.amount >= 200) {
-            console.log("Yay! You qualify for our 12% Discount Promotion!");
-            console.log("Your original total was " + shopper.amount);
-            console.log("Your final total with the discount is " + totalBill);
-        }
+
+    function discountChecker (shoppers) {
+        shoppers.forEach(function(shopper) {
+            if (shopper.amount >= 200) {
+                var discount = (shopper.amount * .12).toFixed(2);
+                var finalTotal = (shopper.amount - discount).toFixed(2);
+                console.log(shopper.name + ", you qualify for our 12% Discount Promotion!");
+                console.log("Your original total was $" + shopper.amount.toFixed(2) + ".");
+                console.log("You received a discount of $" + discount + " and your final price is $" + finalTotal);
+            } else {
+                console.log("Sorry, " + shopper.name + " you do not qualify for the 12% promotion.");
+                console.log("Your total is $" + shopper.amount.toFixed(2) + ".");
+            }
+        });
     }
 
-    shoppers.forEach(promotion);
-
+    discountChecker(shoppers);
 
 
     /** TODO:
