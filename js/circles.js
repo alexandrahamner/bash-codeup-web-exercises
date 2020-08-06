@@ -16,8 +16,9 @@
         logInfo: function (doRounding) {
 
             // TODO: complete this method.
-            if (doRounding === true) {
-                console.log("Area of a circle with radius: " + this.radius + ", is: " + Math.round(this.getArea()));
+            if (doRounding) {
+                var areaRounded = Math.round(this.getArea());
+                console.log("Area of a circle with radius: " + this.radius + ", is: " + areaRounded);
             } else {
                 console.log("Area of a circle with radius: " + this.radius + ", is: " + circle.getArea());
             }
