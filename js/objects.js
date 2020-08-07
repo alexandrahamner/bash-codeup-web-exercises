@@ -200,11 +200,4 @@
     createBook("The Road","Cormac", "McCarthy",books);
 
     bookList(books);
-
-
-
-
-
-
-
 })();
