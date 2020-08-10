@@ -17,39 +17,36 @@
         <br>
 
     <!--Short Bio-->
-        <p><u>Bio:</u></p>
-        <label>
-            <textarea name="bio" maxlength="140" cols="40" rows="5">Enter a short description of yourself here.</textarea>
-        </label>
+        <label for="bio">Bio:</label>
+            <textarea name="bio" id="bio" maxlength="140" cols="40" rows="5">Enter a short description of yourself here.</textarea>
         <br>
 
     <!--Radio Buttons-->
-        <p><u>How Did you Hear About us?</u></p>
-       <label for="billboard">
-           Billboard<input type="radio" id ="billboard" name="hear-about-us-1" value="billboard">
-       </label><br>
-        <label for="radio">
-           Radio Ad<input type="radio" id="radio" name="hear-about-us-2" value="television">
-        </label><br>
-        <label for="internet">
-           Internet Ad<input type="radio" id="internet" name="hear-about-us-3" value="internet">
-        </label ><br>
-        <label for="other">
-            Other<input type="radio" id="other" name="hear-about-us-4" value="other">
-        </label><br>
+        <h3><u>How Did you Hear About us?</u></h3>
+       <label for="billboard">Billboard</label>
+           <input type="radio" id ="billboard" name="hear-about-us" value="billboard">
+       <br>
+        <label for="radio">Radio Ad</label>
+           <input type="radio" id="radio" name="hear-about-us" value="television">
+        <br>
+        <label for="internet">Internet Ad</label>
+           <input type="radio" id="internet" name="hear-about-us" value="internet">
+        <br>
+        <label for="other">Other</label>
+            <input type="radio" id="other" name="hear-about-us" value="other">
+        <br>
         <br>
 
     <!--Browser Drop Down Menu-->
-        <p><u>What Browser Are You Using?</u></p>
-        <label>
-            <select name="browser_preference">
+<!--        <h3><u>What Browser Are You Using?</u></h3>-->
+        <label>What Browser Are You Using?</label>
+            <select id="browser_preference" name="browser_preference">
                 <option value="chrome">Google Chrome</option>
                 <option value="firefox">Firefox</option>
                 <option value="safari">Safari</option>
                 <option value="opera">Opera</option>
                 <option value="other">Other</option>
             </select>
-        </label>
         <br>
         <br>
 
