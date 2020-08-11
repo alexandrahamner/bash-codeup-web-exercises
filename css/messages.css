@@ -5,3 +5,31 @@ body, html {
     margin: 0;
     font-family: Arial, Ubuntu, sans-serif;
 }
+
+div {
+    max-width: 80%;
+    margin: .5em auto;
+    padding: .5em;
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+}
+
+.message-info {
+    color: #4c43a1;
+    background-color: #cddefc;
+}
+
+.message-success {
+    color: #4b8a5a;
+    background-color: #cff4da;
+}
+
+.message-warning {
+    color: #a2933e;
+    background-color: #fcfbca;
+}
+
+.message-error {
+    color: #983e50;
+    background-color: #f9d3d7;
+}
