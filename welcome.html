@@ -6,16 +6,19 @@
     <!--The exercise tells us that an inline has precedence over an external style sheet. However, the external style sheet has precedence over the embedded style sheet!-->
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
+
     <div class="main-header">
         <h1 class="main-header" id="top">Welcome to Veridian Dynamics!</h1>
         <hr>
         <p>At Veridian Dynamics, <strong>we</strong> solve <em>your</em> problems with <strong><em>technology.</em></strong></p>
 
     </div>
-<div id="container">
+<div id="container-lists">
     <div class="list" id="core-values">
         <h2>Core Values</h2>
+        <hr>
         <ul>
             <li>Competence</li>
             <li>Involvement</li>
@@ -25,6 +28,7 @@
 
     <div class="list" id="processes">
         <h2>Our Processes</h2>
+        <hr>
         <ol>
             <li>Plan</li>
             <li>Evaluate</li>
@@ -34,6 +38,7 @@
 
     <div class="list" id="vision">
         <h2>2020 Vision</h2>
+        <hr>
         <ul>
             <li>Become #1 in Technology</li>
             <li>Increase Success by 20%</li>
@@ -42,10 +47,21 @@
     </div>
 </div>
 
-    <hr id="container-line">
+    <nav class="right-navbar">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <hr>
+            <li><a href="#">News</a></li>
+            <hr>
+            <li><a href="#">Contact</a></li>
+            <hr>
+            <li><a href="#">About</a></li>
+        </ul>
 
-    <div>
-        <h2>Company Vision</h2>
+    </nav>
+
+    <div class="container-photos">
+        <h2 id="photo-vision">Company Vision</h2>
         <img src="img-welcome/cardmapr-x7msvR3_txU-unsplash.jpg" width="270" height="400" alt="A person using a smartphone.">
         <img src="img-welcome/jonathan-kemper-9JgbRvW8CJo-unsplash.jpg" width="500" height="400" alt="small group of people collaborating in a meeting space. ">
         <br>
@@ -53,7 +69,7 @@
         <img src="img-welcome/lee-campbell-Pmw_LMwmOdU-unsplash.jpg"  width="270" height="400" alt="a coffee cup, laptop, notebooks, and tablet on a desk.">
     </div>
 
-    <div>
+    <div class="products-table">
         <h2>Our Product</h2>
         <table>
             <tr>
