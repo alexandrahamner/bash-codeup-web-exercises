@@ -17,7 +17,7 @@ em {
 }
 
 h2{
-    color: #8e8e90;
+    color: #ffffff;
     text-decoration: underline;
 }
 
@@ -53,16 +53,23 @@ h2{
 
 }
 
-.right-navbar>ul>li {
+.right-navbar>ul>li>a {
     display: block;
     color: #000;
-    padding: 10px 16px;
+    padding: 10px 15px;
     text-align: right;
+    text-decoration: none;
 }
 
 #photo-vision {
     display: block;
-    color: #bd8c7d;
+    background-color: #bd8c7d;
+    float: left;
+    margin-left: 171px;
+    margin-top: -101px;
+    width: 775px;
+    text-align: center;
+    font-size: 1.4em;
 }
 
 .products-table {
@@ -71,6 +78,9 @@ h2{
 
 .container-photos {
     float: left;
+    margin-left: 171px;
+    padding: 10px;
+    background-color: #49494b;
 }
 
 
