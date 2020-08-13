@@ -118,14 +118,22 @@ a {
 
 .timeline {
     margin: var(--margin-point-five);
-    width: calc(50% - var(--margin-point-five));
+    max-width: calc(50% - var(--margin-point-five));
     float: left;
 }
 
 .who-to-follow {
     float: right;
     margin: 0 .5em;
-    width: calc(25% - var(--margin-point-five));
+    max-width: calc(25% - var(--margin-point-five));
+}
+
+hr {
+    padding: 1px;
+    border: 0;
+    margin: 0;
+    border-bottom: 10px;
+    color: var(--light-bg);
 }
 
 .media {
