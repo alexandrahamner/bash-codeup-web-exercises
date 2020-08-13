@@ -101,10 +101,10 @@ a {
     padding-top: 2em;
 }
 
-.profile-details {
+.profile-details, .who-to-follow {
     float: left;
     margin: var(--margin-point-five);
-    width: calc(25% - var(--margin-point-five));
+    width: calc(25% - 1em);
 }
 
 .profile-items {
@@ -119,13 +119,7 @@ a {
 .timeline {
     float: left;
     margin: var(--margin-point-five);
-    max-width: calc(50% - var(--margin-point-five));
-}
-
-.who-to-follow {
-    float: left;
-    margin: 0 .5em;
-    max-width: calc(25% - var(--margin-point-five));
+    max-width: calc(50% - 1em);
 }
 
 .media {
