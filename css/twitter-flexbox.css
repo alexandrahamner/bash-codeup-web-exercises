@@ -33,12 +33,12 @@ a {
     z-index: 1000;
 }
 .nav {
-    list-style-type: none;
+    list-style: none;
+    display: flex;
     padding: 0;
     margin: 0;
 }
 .nav-item  {
-    display: inline-block;
     padding: 1.5em;
 }
 .nav-link {
@@ -64,6 +64,7 @@ a {
 }
 
 .profile-items {
+    margin: 0;
     padding: 0;
     list-style: none;
 }
@@ -95,7 +96,7 @@ a {
 .who-to-follow>h3 {
     background-color: var(--light-bg);
     margin: 0;
-    padding: 30px 10px 25px 10px;
+    padding: 30px 10px 15px 10px;
 }
 
 .who-to-follow {
