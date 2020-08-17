@@ -11,10 +11,6 @@ nav {
     background-color: #b7b8b8;
 }
 
-.container {
-    display: flex;
-    flex-direction: row;
-}
 
 ul {
     display: flex;
@@ -23,11 +19,11 @@ ul {
     margin: 0;
     align-items: center;
     width: 100VW;
-    position: relative;
 }
 
 #logo {
     font-family: 'Montserrat', sans-serif;
+    margin-right: auto;
     font-size: 3em;
     padding: .2em 0;
 
