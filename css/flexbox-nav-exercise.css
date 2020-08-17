@@ -2,37 +2,45 @@
     box-sizing: border-box;
 }
 
-body, html {
+body {
     margin: 0;
     padding: 0;
 }
 
 nav {
+    display: flex;
     background-color: #b7b8b8;
 }
 
 
-ul {
+
+.nav-left {
     display: flex;
+    align-items: center;
     list-style: none;
     padding: 0;
     margin: 0;
+    width: 100VW;
+}
+
+.nav-right {
+    display: flex;
     align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
     width: 100VW;
 }
 
 #logo {
     font-family: 'Montserrat', sans-serif;
-    text-align: center;
     font-size: 3em;
-    padding: .2em 0;
-    position: relative;
+    padding-bottom: .2em;
 
 }
 
 #logo>a {
     padding: 0;
-    position: absolute;
 }
 
 li {
@@ -51,9 +59,8 @@ nav a:hover {
     background-color: #3B94D9;
 }
 
-nav ul li:nth-child(4) {
+.nav-right li:nth-child(1) {
     margin-right: auto;
 }
-
 
 
