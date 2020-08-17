@@ -23,10 +23,16 @@ ul {
 
 #logo {
     font-family: 'Montserrat', sans-serif;
-    margin-right: auto;
+    text-align: center;
     font-size: 3em;
     padding: .2em 0;
+    position: relative;
 
+}
+
+#logo>a {
+    padding: 0;
+    position: absolute;
 }
 
 li {
