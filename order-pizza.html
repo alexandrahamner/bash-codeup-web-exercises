@@ -10,35 +10,130 @@
     <link rel="stylesheet" href="css/custom.css">
 </head>
 <body>
-
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Pizza World</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-                <a class="nav-item nav-link active" href="#">Order Online <span class="sr-only">(current)</span></a>
-                <a class="nav-item nav-link" href="#">Menu</a>
+<!--Nav Bar-->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Pizza World</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="#">Order Online <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link " href="#">Menu</a>
+            </li>
+            <li class="nav-item">
                 <form class="form-inline">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Zip Code" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search stores near you!</button>
+                    <input class="form-control mr-sm-2" type="search" placeholder="Zipcode" aria-label="Search">
+                    <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Search stores near you!</button>
                 </form>
-                <a class="nav-item nav-link"  href="#"><i class="fas fa-user"></i> Sign Up</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="#" tabindex="-1" aria-disabled="true"><i class="fas fa-user"></i>                 Sign Up</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="container-fluid">
+<!--Jumbotron-->
 
-            </div>
-        </div>
-    </nav>
-
-    <div class="container-fluid">
-        <div class="jumbotron jumbotron-fluid">
+        <div class="jumbotron jumbotron-fluid d-none d-lg-block">
             <div class="container">
                 <h1 class="display-4">Welcome to Pizza World!</h1>
             </div>
         </div>
-    </div>
+
+<!--Ordering-->
+        <h2>Build Your Own Pizza!</h2>
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link active" href="#"><span class="badge badge-pill badge-secondary">1</span> Size and Crust</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#"><span class="badge badge-pill badge-secondary">2</span> Cheese and Sauce</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#"><span class="badge badge-pill badge-secondary">3</span> Toppings</a>
+            </li>
+        </ul>
 
 
+<!--Main Card-->
+        <div class="card">
+            <h6 class="card-header bg-primary text-white border-secondary">Choose size and crust</h6>
+            <div class="card-body border-secondary">
+
+                <!--hand-tossed card-->
+                <div class="card">
+                    <div class="card-header">
+                        Hand-Tossed
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Garlic seasoned crust with a rich, buttery taste.</li>
+                        <li class="list-group-item">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="pizza-size" id="small-pizza-hand-tossed" value="small-pizza-hand-tossed">
+                                <label class="form-check-label" for="small-pizza-hand-tossed">
+                                    Small (10")
+                                </label>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="pizza-size" id="medium-pizza-hand-tossed" value="medium-pizza-hand-tossed">
+                                <label class="form-check-label" for="medium-pizza-hand-tossed">
+                                    Medium (12")
+                                </label>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <br>
+
+                <!--crispy thin-->
+                <div class="card">
+                    <div class="card-header">
+                        Crispy Thin
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Thin enough for optimum crispy to crunchy ratio.</li>
+                        <li class="list-group-item">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="pizza-size" id="medium-pizza-crispy-thin" value="medium-pizza-crispy-thin">
+                                <label class="form-check-label" for="medium-pizza-crispy-thin">
+                                    Medium (12")
+                                </label>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="pizza-size" id="large-pizza-crispy-thin" value="large-pizza-crispy-thin">
+                                <label class="form-check-label" for="large-pizza-crispy-thin">
+                                    Large (14")
+                                </label>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+
+
+            </div>
+            <div class="card-footer">
+                <a href="#" class="btn btn-primary border-secondary float-right">Next Step ></a>
+            </div>
+        </div>
+
+
+
+
+
+
+</div>
 
 
 
