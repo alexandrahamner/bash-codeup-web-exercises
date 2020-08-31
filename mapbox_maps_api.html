@@ -8,65 +8,88 @@
 </head>
 <body>
 
-<div id='map' style='width: 600px; height: 500px;'></div>
-<script src="js/keys.js"></script>
-<script src="js/mapbox-geocoder-utils.js"></script>
-<script>
+    <div id='map' style='width: 600px; height: 500px;'></div>
 
-    mapboxgl.accessToken = mapboxToken;
+    <br>
 
-    var map = new mapboxgl.Map({
-        container: 'map',
-        style: 'mapbox://styles/mapbox/dark-v10', // stylesheet location
-        center: [-98.4936, 29.580], // starting position [lng, lat]
-        zoom: 10 // starting zoom
-    });
-
-    var faveRestaurants = [
-        {
-            address: "19141 Stone Oak Pkwy #507 San Antonio, TX 78258",
-            popupHTML: "<p>Sushi Seven</p>"
-        },
-        {
-            address:"14395 Blanco Rd, San Antonio, TX 78216",
-            popupHTML: "<p>Ito Ramen</p>"
-        },
-        {
-            address:"6989 Blanco Rd, San Antonio, TX 78216",
-            popupHTML: "<p>Dough Pizzeria Napoletana</p>"
-        }
-    ];
-
-    // var sushiSevenInfo = {
-    //     address: "19141 Stone Oak Pkwy #507 San Antonio, TX 78258",
-    //     popupHTML: "<p>Sushi Seven</p>"
-    // }
-
-    var markerOptions = {
-        color: "plum",
-        scale: .9,
-    }
-
-    var popupOptions = {
-        anchor: "top",
-    }
+    <button id="zoomInput5">5x</button>
+    <button id="zoomInput10">10x</button>
+    <button id="zoomInput20">20x</button>
 
 
+    <script src="js/keys.js"></script>
+    <script src="js/mapbox-geocoder-utils.js"></script>
+    <script>
+        'use strict';
 
-            faveRestaurants.forEach(function(restaurant) {
-            geocode(restaurant.address, mapboxToken).then(function(coordinates) {
-                    var popup = new mapboxgl.Popup(popupOptions)
-                        .setHTML(restaurant.popupHTML);
-                    var marker = new mapboxgl.Marker(markerOptions)
-                        .setLngLat(coordinates)
-                        .addTo(map)
-                        .setPopup(popup);
-                });
+        /* Mapbox Script */
+        mapboxgl.accessToken = mapboxToken;
+
+        var map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mapbox/dark-v10', // stylesheet location
+            center: [-98.4936, 29.505], // starting position [lng, lat]
+            zoom: 10// starting zoom
         });
 
+        var faveRestaurants = [
+            {
+                address: "19141 Stone Oak Pkwy #507 San Antonio, TX 78258",
+                popupHTML: "<h3>Sushi Seven</h3>" + "<p>This is my favorite sushi joint because the rolls are huge and the prices are small!</p>" + "<h4>Marilyn Monroe Roll</h4><img src='img/MarilynMonroeRoll.jpg' width='60%' height='50%' >"
+            },
+            {
+                address:"14395 Blanco Rd, San Antonio, TX 78216",
+                popupHTML: "<h3>Ito Ramen</h3>" + "<p>This is my favorite ramen joint because the ramen is authentic and the service is unbeatable!</p>" + "<h4>Spicy Tokyo Ramen</h4><img src='img/SpicyTokyoRamen.webp' width='60%' height='50%' >"
+            },
+            {
+                address:"6989 Blanco Rd, San Antonio, TX 78216",
+                popupHTML: "<h3>Dough Pizzeria Napoletana</h3>" + "<p>Hands down, the best pizza I have ever had in San Antonio! The mozzarella is made in house. </p>" + "<h4>Pizza and Mozzarella</h4><img src='img/DoughPizza.jpg' width='60%' height='50%' >"
+            }
+        ];
+
+        // var sushiSevenInfo = {
+        //     address: "19141 Stone Oak Pkwy #507 San Antonio, TX 78258",
+        //     popupHTML: "<p>Sushi Seven</p>"
+        // }
+
+        var markerOptions = {
+            color: "plum",
+            scale: .9,
+        }
+
+        var popupOptions = {
+            anchor: "top",
+        }
 
 
-</script>
+
+        faveRestaurants.forEach(function(restaurant) {
+            geocode(restaurant.address, mapboxToken).then(function(coordinates) {
+                var popup = new mapboxgl.Popup(popupOptions)
+                    .setHTML(restaurant.popupHTML);
+                var marker = new mapboxgl.Marker(markerOptions)
+                    .setLngLat(coordinates)
+                    .addTo(map)
+                    .setPopup(popup);
+            });
+        });
+
+        /* Button Script */
+        document.getElementById("zoomInput5").addEventListener("click", function (event) {
+            map.zoomTo(5);
+        })
+
+        document.getElementById("zoomInput10").addEventListener("click", function (event) {
+            map.zoomTo(10);
+        })
+
+        document.getElementById("zoomInput20").addEventListener("click", function (event) {
+            map.setCenter([-98.4961558247, 29.6247386211])
+            map.zoomTo(20);
+        })
+
+
+    </script>
 
 
 </body>
