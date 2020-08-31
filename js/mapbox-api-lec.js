@@ -14,15 +14,15 @@
 
 //TODO TOGETHER: Set map to Dallas area using the coordinates [-96.8057, 32.7787]
 
-mapboxgl.accessToken = mapboxToken;
-var map = new mapboxgl.Map({
-    container: 'map',
-    style: 'mapbox://styles/mapbox/navigation-guidance-day-v4', // stylesheet location
-    center: [-96.8057, 32.7787], // starting position [lng, lat]
-    zoom: 12, // starting zoom
-    interactive: true,
-    logoPosition: "top-right",
-});
+// mapboxgl.accessToken = mapboxToken;
+// var map = new mapboxgl.Map({
+//     container: 'map',
+//     style: 'mapbox://styles/mapbox/navigation-guidance-day-v4', // stylesheet location
+//     center: [-96.8059, 32.7850], // starting position [lng, lat]
+//     zoom: 13, // starting zoom
+//     interactive: true,
+//     logoPosition: "top-right",
+// });
 
 
 
@@ -41,17 +41,17 @@ var map = new mapboxgl.Map({
 // TODO TOGETHER: Add a marker to the map using the following coordinates [-96.8084, 32.7799]. This marker will mark the Sixth Floor Museum on our map.
 // TODO TOGETHER: Change the color of the marker
 
-var markerOptions = {
-    color: "plum",
-    draggable: true,
-}
-var marker1 = new mapboxgl.Marker(markerOptions)
-    .setLngLat([-96.8084, 32.7799])
-    .addTo(map);
-
-var marker2 = new mapboxgl.Marker(markerOptions)
-    .setLngLat([-96.8017, 32.7882])
-    .addTo(map);
+// var markerOptions = {
+//     color: "plum",
+//     draggable: true,
+// }
+// var marker1 = new mapboxgl.Marker(markerOptions)
+//     .setLngLat([-96.8084, 32.7799])
+//     .addTo(map);
+//
+// var marker2 = new mapboxgl.Marker(markerOptions)
+//     .setLngLat([-96.8017, 32.7882])
+//     .addTo(map);
 
 
 
@@ -69,10 +69,31 @@ var marker2 = new mapboxgl.Marker(markerOptions)
 
 // TODO TOGETHER: Add a popup to the map over codeup. Set the html as a paragraph that says "Codeup Rocks!"
 
-
+// var popup = new mapboxgl.Popup()
+//     .setLngLat([-96.8084, 32.7799])
+//     .setHTML("<p>Sixth Floor Museum</p>")
+//     .addTo(map)
 
 
 // TODO TOGETHER: Comment out the popup we just added. Add a popup to the Sixth Floor Musume marker.
+// var popupOptions = {
+//     closeOnClick: true,
+//     maxWidth: "none",
+// }
+//
+// var sixthFloorPopup = new mapboxgl.Popup(popupOptions)
+//     .setText("Sixth Floor Museum")
+//     .addTo(map)
+//
+//
+// marker1.setPopup(sixthFloorPopup)
+//
+// var dallasArtPopup = new mapboxgl.Popup(popupOptions)
+//     .setText("Dallas Art Museum")
+//     .addTo(map)
+//
+//
+// marker2.setPopup(dallasArtPopup)
 
 
 // TODO: Review the popup docs. What are some additional options we can pass to the popup?
@@ -88,13 +109,43 @@ var marker2 = new mapboxgl.Marker(markerOptions)
 
 // TODO TOGETHER: Using the Geocoder helper function, log the coordinates of Codeup and recenter the map to focus on Codeup. Comment out previous map code.
 
+geocode("701 Commerce St, Dallas, TX. 78502" , mapboxToken).then(function(result) {
+    console.log(result);
 
+    mapboxgl.accessToken = mapboxToken;
+    var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/navigation-guidance-day-v4', // stylesheet location
+        center: [-98.4936, 29.4241], // starting position [lng, lat]
+        zoom: 15, // starting zoom
+        interactive: true,
+});
+    var markerOptions = {
+        color: "plum",
+        draggable: true,
 
+    }
 
+    var marker1 = new mapboxgl.Marker(markerOptions)
+    .setLngLat([-98.5157, 29.5737])
 
-//TODO: Using the geocode method above, add a marker at Codeup to the map
-//TODO: Instead of setCenter try using map.jumpTo()
-//TODO: Instead of setCenter try using map.flyTo()
+    .addTo(map);
+
+    // map.jumpTo({
+    //     center: [-98.5157, 29.5737],
+    //     zoom: 15,
+    //     })
+
+    map.flyTo({
+        center: [-98.5157, 29.5737],
+        zoom: 15,
+        curve: 2,
+    })
+
+    //TODO: Using the geocode method above, add a marker at Codeup to the map
+    //TODO: Instead of setCenter try using map.jumpTo()
+    //TODO: Instead of setCenter try using map.flyTo()
+})
 
 
 
