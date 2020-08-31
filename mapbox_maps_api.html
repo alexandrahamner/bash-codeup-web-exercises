@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mapbox Exercise</title>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet' />
+</head>
+<body>
+
+<div id='map' style='width: 600px; height: 500px;'></div>
+<script src="js/keys.js"></script>
+<script src="js/mapbox-geocoder-utils.js"></script>
+<script>
+
+    mapboxgl.accessToken = mapboxToken;
+
+    var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/dark-v10', // stylesheet location
+        center: [-98.4936, 29.580], // starting position [lng, lat]
+        zoom: 10 // starting zoom
+    });
+
+    var faveRestaurants = [
+        {
+            address: "19141 Stone Oak Pkwy #507 San Antonio, TX 78258",
+            popupHTML: "<p>Sushi Seven</p>"
+        },
+        {
+            address:"14395 Blanco Rd, San Antonio, TX 78216",
+            popupHTML: "<p>Ito Ramen</p>"
+        },
+        {
+            address:"6989 Blanco Rd, San Antonio, TX 78216",
+            popupHTML: "<p>Dough Pizzeria Napoletana</p>"
+        }
+    ];
+
+    // var sushiSevenInfo = {
+    //     address: "19141 Stone Oak Pkwy #507 San Antonio, TX 78258",
+    //     popupHTML: "<p>Sushi Seven</p>"
+    // }
+
+    var markerOptions = {
+        color: "plum",
+        scale: .9,
+    }
+
+    var popupOptions = {
+        anchor: "top",
+    }
+
+
+
+            faveRestaurants.forEach(function(restaurant) {
+            geocode(restaurant.address, mapboxToken).then(function(coordinates) {
+                    var popup = new mapboxgl.Popup(popupOptions)
+                        .setHTML(restaurant.popupHTML);
+                    var marker = new mapboxgl.Marker(markerOptions)
+                        .setLngLat(coordinates)
+                        .addTo(map)
+                        .setPopup(popup);
+                });
+        });
+
+
+
+</script>
+
+
+</body>
+</html>
