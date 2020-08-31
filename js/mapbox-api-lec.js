@@ -14,7 +14,15 @@
 
 //TODO TOGETHER: Set map to Dallas area using the coordinates [-96.8057, 32.7787]
 
-
+mapboxgl.accessToken = mapboxToken;
+var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/navigation-guidance-day-v4', // stylesheet location
+    center: [-96.8057, 32.7787], // starting position [lng, lat]
+    zoom: 12, // starting zoom
+    interactive: true,
+    logoPosition: "top-right",
+});
 
 
 
@@ -30,10 +38,20 @@
 //Use the .setLngLat() and .addTo() methods to add marker to the map
 
 
-// TODO TOGETHER: Add a marker to the map using the following coordinates [-96.8084, 32.7799]. This marker will mark the Sixth Floor Muesume on our map.
+// TODO TOGETHER: Add a marker to the map using the following coordinates [-96.8084, 32.7799]. This marker will mark the Sixth Floor Museum on our map.
 // TODO TOGETHER: Change the color of the marker
 
+var markerOptions = {
+    color: "plum",
+    draggable: true,
+}
+var marker1 = new mapboxgl.Marker(markerOptions)
+    .setLngLat([-96.8084, 32.7799])
+    .addTo(map);
 
+var marker2 = new mapboxgl.Marker(markerOptions)
+    .setLngLat([-96.8017, 32.7882])
+    .addTo(map);
 
 
 
