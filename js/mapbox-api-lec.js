@@ -109,50 +109,75 @@
 
 // TODO TOGETHER: Using the Geocoder helper function, log the coordinates of Codeup and recenter the map to focus on Codeup. Comment out previous map code.
 
-geocode("701 Commerce St, Dallas, TX. 78502" , mapboxToken).then(function(result) {
-    console.log(result);
-
-    mapboxgl.accessToken = mapboxToken;
-    var map = new mapboxgl.Map({
-        container: 'map',
-        style: 'mapbox://styles/mapbox/navigation-guidance-day-v4', // stylesheet location
-        center: [-98.4936, 29.4241], // starting position [lng, lat]
-        zoom: 15, // starting zoom
-        interactive: true,
-});
-    var markerOptions = {
-        color: "plum",
-        draggable: true,
-
-    }
-
-    var marker1 = new mapboxgl.Marker(markerOptions)
-    .setLngLat([-98.5157, 29.5737])
-
-    .addTo(map);
-
-    // map.jumpTo({
-    //     center: [-98.5157, 29.5737],
-    //     zoom: 15,
-    //     })
-
-    map.flyTo({
-        center: [-98.5157, 29.5737],
-        zoom: 15,
-        curve: 2,
-    })
+// geocode("701 Commerce St, Dallas, TX. 78502" , mapboxToken).then(function(result) {
+//     console.log(result);
+//
+//     mapboxgl.accessToken = mapboxToken;
+//     var map = new mapboxgl.Map({
+//         container: 'map',
+//         style: 'mapbox://styles/mapbox/navigation-guidance-day-v4', // stylesheet location
+//         center: [-98.4936, 29.4241], // starting position [lng, lat]
+//         zoom: 15, // starting zoom
+//         interactive: true,
+// });
+//     var markerOptions = {
+//         color: "plum",
+//         draggable: true,
+//
+//     }
+//
+//     var marker1 = new mapboxgl.Marker(markerOptions)
+//     .setLngLat([-98.5157, 29.5737])
+//
+//     .addTo(map);
+//
+//     // map.jumpTo({
+//     //     center: [-98.5157, 29.5737],
+//     //     zoom: 15,
+//     //     })
+//
+//     map.flyTo({
+//         center: [-98.5157, 29.5737],
+//         zoom: 15,
+//         curve: 2,
+//     })
 
     //TODO: Using the geocode method above, add a marker at Codeup to the map
     //TODO: Instead of setCenter try using map.jumpTo()
     //TODO: Instead of setCenter try using map.flyTo()
-})
+// })
 
 
 
 // TODO TOGETHER: Reverse Geocoding: Using the reverse geocoding method, enter the coordinates {lng: -96.8084, lat: 32.7799} to get a physical address for the Sixth Floor Musume
 
+    var accessToken = mapboxToken;
+    mapboxgl.accessToken = accessToken;
+    var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v9',
+        zoom: 10,
+        center: [-98.4916, 29.4252]
+    });
 
+    reverseGeocode({lng: -98.4861, lat: 29.4260}, accessToken).then(function(results) {
+        // logs the address for The Alamo
+        console.log(results);
+        map.setCenter
+
+        var markerOptions = {
+            color: "plum",
+            draggable: true,
+        }
+
+        var marker1 = new mapboxgl.Marker(markerOptions)
+        .setLngLat([-98.4861, 29.4260])
+        .addTo(map);
+
+    });
 
 // TODO: Reverse geocode coordinates of your choice using the reverse geocode method
+
+
 
 
