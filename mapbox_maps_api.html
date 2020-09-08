@@ -8,13 +8,27 @@
 </head>
 <body>
 
+<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.5.1/mapbox-gl-geocoder.min.js"></script>
+<link
+        rel="stylesheet"
+        href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.5.1/mapbox-gl-geocoder.css"
+        type="text/css"
+/>
+    <h3 style="font-family: Arial, Ubuntu, sans-serif">Click on the markers to reveal information!</h3>
     <div id='map' style='width: 600px; height: 500px;'></div>
+    <h3 style="font-family: Arial, Ubuntu, sans-serif">Add the address of your favorite restaurant in the search bar!</h3>
+    <div id="geocoder" class="geocoder"></div>
 
     <br>
 
     <button id="zoomInput5">5x</button>
     <button id="zoomInput10">10x</button>
     <button id="zoomInput20">20x</button>
+    <button id="hideMarkers">Hide Markers</button>
+
+
+    <br>
+
 
 
     <script src="js/keys.js"></script>
@@ -87,6 +101,21 @@
             map.setCenter([-98.4961558247, 29.6247386211])
             map.zoomTo(20);
         })
+
+        document.getElementById("hideMarkers").addEventListener("click", function (event) {
+            map.marker.remove;
+        })
+
+
+        var geocoder = new MapboxGeocoder({
+            accessToken: mapboxgl.accessToken,
+            marker: {
+                color: 'plum'
+            },
+            mapboxgl: mapboxgl
+        });
+
+        map.addControl(geocoder);
 
 
     </script>
