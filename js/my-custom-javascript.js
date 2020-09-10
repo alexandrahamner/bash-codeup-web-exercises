@@ -23,7 +23,7 @@ $(document).ready(function() {
 
     //TODO Make all paragraphs have a font size of 18px when they are double clicked.
     $('.codeup').dblclick(function () {
-
+        $(this).css('font-size', '18px');
     })
 
     //TODO Set all li text color to red when the mouse is hovering; reset to black when it is not.
