@@ -27,5 +27,9 @@ $(document).ready(function() {
     })
 
     //TODO Set all li text color to red when the mouse is hovering; reset to black when it is not.
-    $('.list-item').hover(function () {}, function () {});
+    $('.list-item').hover(function () {
+        $(this).css('color','red');
+    }, function () {
+        $(this).css('color','black');
+    });
 });
