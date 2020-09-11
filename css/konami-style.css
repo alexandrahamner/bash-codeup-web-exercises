@@ -5,11 +5,26 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 70vh;
+    height: 100vh;
     font-family: 'Major Mono Display', monospace;
     background-color: black;
+    overflow: hidden;
 
 }
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
 .container {
     display: flex;
     flex-direction: column;
@@ -19,9 +34,9 @@ body {
     width: 30%;
     border: solid gray 2px;
     border-radius: 10%;
-    -webkit-box-shadow: 20px 20px 26px 0px rgba(204,196,204,0.82);
-    -moz-box-shadow: 20px 20px 26px 0px rgba(204,196,204,0.82);
-    box-shadow: 20px 20px 26px 0px rgba(204,196,204,0.82);
+    -webkit-box-shadow: 10px 10px 26px 0px rgba(204,196,204,0.62);
+    -moz-box-shadow: 10px 10px 26px 0px rgba(204,196,204,0.62);
+    box-shadow: 10px 10px 26px 0px rgba(204,196,204,0.62);
 }
 
 .main-text {
@@ -29,4 +44,7 @@ body {
     color: #222;
 }
 
+hr {
+    width: 100%;
+}
 
