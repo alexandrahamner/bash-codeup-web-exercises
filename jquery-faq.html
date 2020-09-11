@@ -8,6 +8,29 @@
             margin: 0;
             padding: 0;
         }
+        #register {
+            display: none;
+            width: 50%;
+            height: 200px;
+            background-color: #0fb784;
+            position: fixed;
+            top: 25%;
+            left: 25%;
+            z-index: 3;
+            border: #222222 solid 2px;
+        }
+        h2, form {
+            text-align: center;
+        }
+        #hide-register{
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+        }
+        #hide-register:hover {
+            color: white;
+        }
         .container {
             margin: 5px 10px;
             padding: 5px;
@@ -33,6 +56,9 @@
         dt, h3, li {
             cursor: pointer;
         }
+        ul {
+            display: none;
+        }
         .highlight {
             background-color: rgba(227,180,35,0.98);
             font-weight: bold;
@@ -56,6 +82,13 @@
     </style>
 </head>
 <body>
+<div id="register">
+    <h2>Register for our site! <span id="hide-register">X</span></h2>
+    <form>
+        <input type="text" name="email" placeholder="Type Your Email Address Here">
+        <input type="submit">
+    </form>
+</div>
 <div id="newsletter">
     <h1>Would you like to sign up for our newsletter? <span id="hide">X</span></h1>
 
@@ -153,9 +186,9 @@
                     $(this).children().last().toggleClass("highlight");
                 });
             });
-            $("h3").click(function () {
-                $(this).next().toggleClass("font-bold");
-            });
+            // $("h3").click(function () {
+            //     $(this).next().toggleClass("font-bold");
+            // });
             $("li").click(function () {
                 $(this).parent().children().first().toggleClass("color-blue");
             });
@@ -164,6 +197,15 @@
             $("#hide").click(function () {
                 $("#newsletter").hide();
             })
+            $("h3").click(function () {
+                $(this).next().slideToggle();
+            });
+            $("#hide-register").click(function () {
+                $("#register").hide();
+            })
+            setTimeout(function () {
+                $("#register").fadeIn();
+            }, 8000 )
 
         });
 
