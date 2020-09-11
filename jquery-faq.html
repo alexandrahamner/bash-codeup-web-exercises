@@ -3,28 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        .invisible {
+            visibility: hidden;
+        }
+        dt {
+            cursor: pointer;
+        }
+        .highlighted {
+            background-color: black;
+            color: white;
+        }
+
+    </style>
 </head>
 <body>
 
     <div class="container">
         <h2>Some Quick Facts About Big Bend National Park</h2>
         <dl>
-            <dt>Natural History</dt>
-            <dd>Big Bend National Park is often referred to as "three parks in one", due to the multiple ecosystems found within its boundaries.</dd>
-            <dd><u>River:</u> The one location where you can count on seeing water in the park is along the Rio Grande—an oasis that’s been called the “lifeblood” of Big Bend. </dd>
-            <dd><u>Desert:</u> Big Bend National Park is located at the northern end of the Chihuahuan desert. Since most of the Chihuahuan desert is located in Mexico, Big Bend represents the largest protected portion of the Chihuahuan desert in the United States.</dd>
-            <dd><u>Mountains:</u> In the heart of Big Bend lie the Chisos Mountains, mountains born of fire during volcanic eruptions and intrusions 40 - 60 million years ago and exposed by the incessant forces of erosion. </dd>
+            <dt class>Natural History</dt>
+            <button class="natural-history-button">Click to view more</button>
+            <dd class="natural-history">Big Bend National Park is often referred to as "three parks in one", due to the multiple ecosystems found within its boundaries.</dd>
+            <dd class="natural-history"><u>River:</u> The one location where you can count on seeing water in the park is along the Rio Grande—an oasis that’s been called the “lifeblood” of Big Bend. </dd>
+            <dd class="natural-history"><u>Desert:</u> Big Bend National Park is located at the northern end of the Chihuahuan desert. Since most of the Chihuahuan desert is located in Mexico, Big Bend represents the largest protected portion of the Chihuahuan desert in the United States.</dd>
+            <dd class="natural-history"><u>Mountains:</u> In the heart of Big Bend lie the Chisos Mountains, mountains born of fire during volcanic eruptions and intrusions 40 - 60 million years ago and exposed by the incessant forces of erosion. </dd>
             <dt>Wildlife</dt>
-            <dd>Big Bend National Park's varied habitats support an amazing variety of wildlife, including 11 species of amphibians, 56 species of reptiles, 40 species of fish, 75 species of mammals, more than 450 species of birds, and about 3,600 species of insects.</dd>
-            <dd><u>Mammals:</u> Living in an area with high temperatures and low rainfall forces many animals to live extremely cautious lifestyles. Many leave their burrows only under cover of night.</dd>
-            <dd><u>Birds:</u> Of the 450 species reported in the park, only 56 species live in Big Bend year-round. </dd>
-            <dd><u>Reptiles:</u> Since they do not sweat or perspire, reptiles do not require water for cooling. Big Bend's desert environment is a perfect place for reptiles, evidenced by the 31 species of snakes and 22 species of lizards found in the park. </dd>
+            <button class="wildlife-button">Click to view more</button>
+            <dd class="wildlife">Big Bend National Park's varied habitats support an amazing variety of wildlife, including 11 species of amphibians, 56 species of reptiles, 40 species of fish, 75 species of mammals, more than 450 species of birds, and about 3,600 species of insects.</dd>
+            <dd class="wildlife"><u>Mammals:</u> Living in an area with high temperatures and low rainfall forces many animals to live extremely cautious lifestyles. Many leave their burrows only under cover of night.</dd>
+            <dd class="wildlife"><u>Birds:</u> Of the 450 species reported in the park, only 56 species live in Big Bend year-round. </dd>
+            <dd class="wildlife"><u>Reptiles:</u> Since they do not sweat or perspire, reptiles do not require water for cooling. Big Bend's desert environment is a perfect place for reptiles, evidenced by the 31 species of snakes and 22 species of lizards found in the park. </dd>
             <dt>Plants</dt>
-            <dd>Over 1200 species of plants are found within Big Bend National Park--an astonishing diversity considering the hot, dry desert climate and the rugged landscape. But the sheer ruggedness of that landscape creates a variety of habitats for plants.</dd>
+            <button class="plants-button">Click to view more</button>
+            <dd class="plants">Over 1200 species of plants are found within Big Bend National Park--an astonishing diversity considering the hot, dry desert climate and the rugged landscape. But the sheer ruggedness of that landscape creates a variety of habitats for plants.</dd>
             <dt>Rocks</dt>
-            <dd>Most of the visible surface of Big Bend National Park is relatively young when compared to the age of the earth, which most geologists accept as being approximately 4.6 billion years. There are materials present that date from about 500 million years ago; however, most exposed rock throughout the park is 100 million years or less in age. </dd>
+            <button class="rocks-button">Click to view more</button>
+            <dd class="rocks">Most of the visible surface of Big Bend National Park is relatively young when compared to the age of the earth, which most geologists accept as being approximately 4.6 billion years. There are materials present that date from about 500 million years ago; however, most exposed rock throughout the park is 100 million years or less in age. </dd>
         </dl>
     </div>
+
+
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <!-- Custom Script -->
+    <script>
+        $(document).ready(function () {
+           $("dd").addClass("invisible");
+           $("dt").on('click', function () {
+               $(this).toggleClass("highlighted");
+           })
+            $(".natural-history-button").on('click', function () {
+                $(".natural-history").toggleClass("invisible");
+            })
+            $(".wildlife-button").on('click', function () {
+                $(".wildlife").toggleClass("invisible");
+            })
+            $(".plants-button").on('click', function () {
+                $(".plants").toggleClass("invisible");
+            })
+            $(".rocks-button").on('click', function () {
+                $(".rocks").toggleClass("invisible");
+            })
+
+        });
+
+    </script>
 
 </body>
 </html>
