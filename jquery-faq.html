@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>jQuery Attribute and CSS Exercise </title>
     <style>
         .invisible {
             visibility: hidden;
@@ -10,9 +10,9 @@
         dt {
             cursor: pointer;
         }
-        .highlighted {
-            background-color: black;
-            color: white;
+        .highlight {
+            background-color: rgba(227,180,35,0.98);
+            font-weight: bold;
         }
 
     </style>
@@ -20,7 +20,8 @@
 <body>
 
     <div class="container">
-        <h2>Some Quick Facts About Big Bend National Park</h2>
+        <h3>Some Quick Facts About Big Bend National Park</h3>
+        <a href="#" class="display">Toggle</a>
         <dl>
             <dt class>Natural History</dt>
             <button class="natural-history-button">Click to view more</button>
@@ -43,27 +44,67 @@
         </dl>
     </div>
 
+    <div class="container">
+        <button class="highlight-last-li-button">Click Me</button>
+
+        <h3>Some Facts About Yosemite National Park</h3>
+        <ul>
+            <li>It is revered as the birth place of rock climbing for sport.</li>
+            <li>Buffalo Soldier were some of the park's first protectors.</li>
+            <li>There are more than 400 species of animals living in Yosemite, 90 of which are different mammal species.</li>
+            <li>Even though the park is open year-round, almost 75% of all Yosemite tourists visit the park between May and October. Many of them never leave Yosemite Valley, which covers only 6-square miles.</li>
+        </ul>
+
+        <h3>Some Facts About Carlsbad Caverns National Park</h3>
+        <ul>
+            <li>The land that forms Carlsbad Caverns was once part of an ancient underwater reef called Capitan Reef. Marine fossils have been found in the rock.</li>
+            <li>There are no flowing rivers or streams inside the caves.</li>
+            <li>The temperature in the caverns holds steady at 56 degrees Fahrenheit.</li>
+            <li> Some of the guided tours through the caverns are a real adventure, requiring participants to crawl through the caves.</li>
+        </ul>
+
+        <h3>Some Facts About Badlands National Park</h3>
+        <ul>
+            <li>Badlands National Park covers a total area of 244,300 acres</li>
+            <li>The name Badlands comes from the Lakota, who first called it “mako sica”, or “land that is bad”. The lack of water, bizarre topography, and extreme temperatures were the likely reasons.</li>
+            <li>The Pine Ridge Indian Reservation, governed by the Oglala Sioux Tribe, is both adjacent to and within Badlands National Park. Part of the park (the Stronghold Unit), is managed by the tribe.</li>
+            <li>Bison, commonly known as buffalo, can be seen throughout the park, but especially along the unpaved Sage Creek Rim Road. Prairie dog towns are also a frequent sight.</li>
+        </ul>
+    </div>
+
 
     <!-- jQuery CDN -->
     <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
     <!-- Custom Script -->
     <script>
+    // Attributes and CSS Exercise
         $(document).ready(function () {
            $("dd").addClass("invisible");
            $("dt").on('click', function () {
-               $(this).toggleClass("highlighted");
-           })
+               $(this).toggleClass("highlight");
+           });
+           $(".display").click(function (e) {
+               e.preventDefault();
+               $("dd").toggleClass("invisible");
+           });
             $(".natural-history-button").on('click', function () {
                 $(".natural-history").toggleClass("invisible");
-            })
+            });
             $(".wildlife-button").on('click', function () {
                 $(".wildlife").toggleClass("invisible");
-            })
+            });
             $(".plants-button").on('click', function () {
                 $(".plants").toggleClass("invisible");
-            })
+            });
             $(".rocks-button").on('click', function () {
                 $(".rocks").toggleClass("invisible");
+            });
+
+            //Traversing Exercise
+            $(".highlight-last-li-button").click(function () {
+                $("ul").each(function(index) {
+                    $(this).children().last().toggleClass("highlight");
+                })
             })
 
         });
