@@ -7,14 +7,29 @@
         .invisible {
             visibility: hidden;
         }
-        dt {
+        dt, h3, li {
             cursor: pointer;
         }
         .highlight {
             background-color: rgba(227,180,35,0.98);
             font-weight: bold;
         }
-
+        .font-bold{
+            font-weight: bold;
+        }
+        .color-blue {
+            color: blue;
+        }
+        #images {
+            display: flex;
+            justify-content: space-around;
+        }
+        .image-frame {
+            width: 300px;
+            height: 200px;
+            border: rgba(58,27,26,0.98) solid 5px;
+            margin: 50px 0;
+        }
     </style>
 </head>
 <body>
@@ -45,6 +60,11 @@
     </div>
 
     <div class="container">
+        <div id="images">
+            <div class="image-frame"><img id="" </div>
+            <div class="image-frame"></div>
+            <div class="image-frame"></div>
+        </div>
         <button class="highlight-last-li-button">Click Me</button>
 
         <h3>Some Facts About Yosemite National Park</h3>
@@ -104,9 +124,14 @@
             $(".highlight-last-li-button").click(function () {
                 $("ul").each(function(index) {
                     $(this).children().last().toggleClass("highlight");
-                })
-            })
-
+                });
+            });
+            $("h3").click(function () {
+                $(this).next().toggleClass("font-bold");
+            });
+            $("li").click(function () {
+                $(this).parent().children().first().toggleClass("color-blue");
+            });
         });
 
     </script>
