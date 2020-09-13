@@ -69,16 +69,18 @@
         .color-blue {
             color: blue;
         }
-        #images {
+        #images, #image-buttons {
             display: flex;
             justify-content: space-around;
+            margin-bottom: 10px;
         }
         .image-frame {
             width: 300px;
             height: 200px;
             border: rgba(58,27,26,0.98) solid 5px;
-            margin: 50px 0;
+
         }
+
     </style>
 </head>
 <body>
@@ -121,11 +123,17 @@
 
     <div class="container">
         <div id="images">
-            <div class="image-frame"><img src="img/yosemite.jpg" width="300px" height="200px"></div>
-            <div class="image-frame"><img src="img/carlsbad.jpg" width="300px" height="200px"></div>
-            <div class="image-frame"><img src="img/badlands.jpg" width="300px" height="200px"></div>
+            <div class="image-frame" id="yosemite-img"><img src="img/yosemite.jpg" width="300px" height="200px" ></div>
+            <div class="image-frame" id="carlsbad-img"><img src="img/carlsbad.jpg" width="300px" height="200px" ></div>
+            <div class="image-frame" id="badlands-img"><img src="img/badlands.jpg" width="300px" height="200px" ></div>
+
         </div>
-        <button class="highlight-last-li-button">Click Me</button>
+        <div id="image-buttons">
+            <button id="yosemite-btn">Click Me</button>
+            <button id="carlsbad-btn">Click Me</button>
+            <button id="badlands-btn">Click Me</button>
+        </div>
+
 
         <h3>Some Facts About Yosemite National Park</h3>
         <ul>
@@ -150,6 +158,7 @@
             <li>The Pine Ridge Indian Reservation, governed by the Oglala Sioux Tribe, is both adjacent to and within Badlands National Park. Part of the park (the Stronghold Unit), is managed by the tribe.</li>
             <li>Bison, commonly known as buffalo, can be seen throughout the park, but especially along the unpaved Sage Creek Rim Road. Prairie dog towns are also a frequent sight.</li>
         </ul>
+        <button class="highlight-last-li-button">Click Me</button>
     </div>
 
 
@@ -202,11 +211,18 @@
             });
             $("#hide-register").click(function () {
                 $("#register").hide();
-            })
+            });
             setTimeout(function () {
                 $("#register").fadeIn();
-            }, 8000 )
+            }, 8000 );
 
+            $("#yosemite-btn").click(function() {
+                $("#yosemite-img").children().remove("img");
+                $("#carlsbad-img").children().remove("img");
+                $("#yosemite-img").append().html("<img src=\"img/carlsbad.jpg\" width=\"300px\" height=\"200px\" >")
+                $("#carlsbad-img").append().html("<img src=\"img/yosemite.jpg\" width=\"300px\" height=\"200px\" >")
+
+            });
         });
 
     </script>
