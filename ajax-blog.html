@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajax Blog</title>
+</head>
+<body>
+
+    <h1>Ally's Blog</h1>
+    <hr>
+    <div id="posts">
+
+    </div>
+
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+    <script>
+        $(document).ready(function () {
+
+            var finalHTML = "";
+
+            $.ajax("data/blog.json")
+                .done(function (data) {
+                    console.log("Data: ");
+                    console.log(data);
+                    for(var i = 0; i < data.length; i++) {
+                        finalHTML += "<h2>"+ data[i].title +"</h2>\n" +
+                            "        <h3>"+ data[i].date +"</h3>\n" +
+                            "        <p>"+ data[i].content +"</p>\n" +
+                            "        <p>"+ data[i].categories +"</p>\n" +
+                            "        <hr>"
+                    };
+                    $("#posts").append(finalHTML);
+
+                });
+        });
+    </script>
+
+</body>
+</html>
