@@ -32,9 +32,13 @@
                     for(var i = 0; i < data.length; i++) {
                         finalHTML += "<h2>"+ data[i].title +"</h2>\n" +
                             "            <p class=\"text-muted\">"+ data[i].date +"</p>\n" +
-                            "            <p>"+ data[i].content +"</p>\n" +
-                            "            <a href=\"#\">"+ data[i].categories +"</a>\n" +
-                            "            <hr>"
+                            "            <p>"+ data[i].content +"</p>\n"
+                                var categoryItem = ""
+                                for(var x = 0; x < data[i].categories.length; x++){
+                                    categoryItem += "<a href=\"#\">" + data[i].categories[x]  +"</a>\n";
+                                }
+
+                            finalHTML += categoryItem + "<hr>"
                     };
                     $("#posts").append(finalHTML);
 
