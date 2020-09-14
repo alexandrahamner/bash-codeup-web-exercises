@@ -30,5 +30,19 @@
             "tool"
         ],
         "price": 10
+    }, {
+        "title": "Nails",
+        "quantity": 100,
+        "categories": [
+            "supplies"
+        ],
+        "price": 1
+    }, {
+        "title": "Gloves",
+        "quantity": 30,
+        "categories": [
+            "supplies"
+        ],
+        "price": 5
     }
 ]
