@@ -30,7 +30,7 @@
     </h1>
 
     <table id="products" class="table table-hover">
-        <caption>Current Store Inventory</caption>
+        <caption>Current Store Inventory <button id="refresh-inventory" class="btn btn-secondary float-right">Refresh Inventory</button></caption>
         <thead class="thead-dark">
             <tr>
                 <th scope="col">Title</th>
@@ -42,6 +42,7 @@
         <tbody id="insertProducts"></tbody>
     </table>
 
+
 </div>
 
 <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
@@ -52,38 +53,47 @@
 (function() {
     "use strict";
     // TODO: Create an AJAX GET request for the file under data/inventory.json
-
-    var finalHTML = "";
-
-    $.ajax("data/inventory.json")
-        .done(function (data) {
-            console.log("Data: ");
-            console.log(data);
-            for(var i = 0; i < data.length; i++) {
-                finalHTML += "<tr>\n" +
-                    "<td>"+ data[i].title +"</td>\n" +
-                    "<td>"+ data[i].quantity +"</td>\n" +
-                    "<td>"+ data[i].price +"</td>\n" +
-                    "<td>"
-                    var categoryItem = "";
-                    for(var x = 0; x < data[i].categories.length; x++) {
-                        categoryItem += "<p>"+ data[i].categories[x] +"</p>\n"
-                    }
-                   finalHTML += categoryItem + "</td>" +"</tr>"
-            };
-            $("#insertProducts").append(finalHTML);
-
-            // Toggle Search Form
-            $("#search-toggle").click(function () {
-                $("#search-bar").slideToggle();
-            })
-
-        });
-
     // TODO: Take the data from inventory.json and append it to the products table
-    //       HINT: Your data should come back as a JSON object; use console.log() to inspect
-    //             its contents and fields
-    //       HINT: You will want to target #insertProducts for your new HTML elements
+        //       HINT: Your data should come back as a JSON object; use console.log() to inspect
+        //             its contents and fields
+        //       HINT: You will want to target #insertProducts for your new HTML elements
+
+
+
+    function loadInventory () {
+        $.get("data/inventory.json")
+            .done(function (data) {
+                var finalHTML = "";
+                $("#insertProducts").empty();
+                for (var i = 0; i < data.length; i++) {
+                    finalHTML += "<tr>\n" +
+                        "<td>" + data[i].title + "</td>\n" +
+                        "<td>" + data[i].quantity + "</td>\n" +
+                        "<td>" + data[i].price + "</td>\n" +
+                        "<td>"
+                    var categoryItem = "";
+                    for (var x = 0; x < data[i].categories.length; x++) {
+                        categoryItem += "<p>" + data[i].categories[x] + "</p>\n"
+                    }
+                    finalHTML += categoryItem + "</td>" + "</tr>"
+                }
+                ;
+                $("#insertProducts").append(finalHTML);
+
+            });
+    };
+
+        loadInventory();
+
+        // Refresh Inventory List
+        $("#refresh-inventory").click(function () {
+            loadInventory();
+        })
+
+        // Toggle Search Form
+        $("#search-toggle").click(function () {
+            $("#search-bar").slideToggle();
+        })
 })();
 </script>
 

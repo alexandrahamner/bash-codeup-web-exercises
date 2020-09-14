@@ -44,5 +44,12 @@
             "supplies"
         ],
         "price": 5
-    }
+    }, {
+    "title": "Hats",
+    "quantity": 30,
+    "categories": [
+        "supplies"
+    ],
+    "price": 5
+}
 ]
