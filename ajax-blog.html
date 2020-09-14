@@ -5,15 +5,41 @@
     <title>Ajax Blog</title>
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/005a2c3e85.js" crossorigin="anonymous"></script>
+    <style>
+        #search-toggle {
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
-        <h1>Ally's Blog</h1>
-        <hr>
-        <div id="posts">
+        <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                    <li class="nav-item active">
+                        <a class="nav-link text-muted" href="#">Subscribe <span class="sr-only">(current)</span></a>
+                    </li>
 
+                </ul>
+                <a class="navbar-brand mr-auto text-uppercase" href="#">Ally's Blog</a>
+                <form class="form-inline my-2 my-lg-0">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-sm btn-outline-secondary my-2 my-sm-0" type="submit">Search</button>
+                </form>
+                <i id ="search-toggle" class="fas fa-search mx-3"></i>
+                <button class="btn btn-sm btn-outline-secondary my-2 my-sm-0" type="submit">Sign Up</button>
+            </div>
+        </nav>
+        <hr>
+        <div class="row">
+            <div id="posts" class="col-sm col-md-8">
+
+            </div>
         </div>
-    </div>
 
     <!-- jQuery and Bootstrap Script -->
     <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
@@ -22,16 +48,15 @@
 
     <script>
         $(document).ready(function () {
-
+            // Retrieves data from data/blog.json
             var finalHTML = "";
-
             $.ajax("data/blog.json")
                 .done(function (data) {
                     console.log("Data: ");
                     console.log(data);
                     for(var i = 0; i < data.length; i++) {
                         finalHTML += "<h2>"+ data[i].title +"</h2>\n" +
-                            "            <p class=\"text-muted\">"+ data[i].date +"</p>\n" +
+                            "            <p class=\"text-muted lead\">"+ data[i].date +"</p>\n" +
                             "            <p>"+ data[i].content +"</p>\n"
                                 var categoryItem = ""
                                 for(var x = 0; x < data[i].categories.length; x++){
@@ -43,6 +68,10 @@
                     $("#posts").append(finalHTML);
 
                 });
+
+            // Toggle Search Form
+
+
         });
     </script>
 
