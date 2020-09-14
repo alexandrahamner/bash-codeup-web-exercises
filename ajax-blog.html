@@ -7,14 +7,20 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/005a2c3e85.js" crossorigin="anonymous"></script>
     <style>
+        .navbar-brand {
+            font-size: 2em;
+        }
         #search-toggle {
             cursor: pointer;
+        }
+        #search-bar{
+            display: none;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+        <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top border-bottom">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -25,8 +31,8 @@
                     </li>
 
                 </ul>
-                <a class="navbar-brand mr-auto text-uppercase" href="#">Ally's Blog</a>
-                <form class="form-inline my-2 my-lg-0">
+                <a class="navbar-brand mr-auto" href="#">Ally's Blog</a>
+                <form id="search-bar" class="form-inline my-2 my-lg-0">
                         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                         <button class="btn btn-sm btn-outline-secondary my-2 my-sm-0" type="submit">Search</button>
                 </form>
@@ -34,11 +40,14 @@
                 <button class="btn btn-sm btn-outline-secondary my-2 my-sm-0" type="submit">Sign Up</button>
             </div>
         </nav>
-        <hr>
         <div class="row">
-            <div id="posts" class="col-sm col-md-8">
+            <div id="posts" class="col-sm col-md-8 my-4">
 
             </div>
+        </div>
+        <div class="btn-group my-2 mx-2" role="group" aria-label="Basic example">
+            <button type="button" class="btn btn-secondary">Older</button>
+            <button type="button" class="btn btn-secondary">Newer</button>
         </div>
 
     <!-- jQuery and Bootstrap Script -->
@@ -70,7 +79,9 @@
                 });
 
             // Toggle Search Form
-
+            $("#search-toggle").click(function () {
+                $("#search-bar").slideToggle();
+            })
 
         });
     </script>
