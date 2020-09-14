@@ -35,13 +35,13 @@
         .done(function (data) {
             console.log("Data: ");
             console.log(data);
-            for(var i = 0; i < 4; i++) {
+            for(var i = 0; i < data.length; i++) {
                 finalHTML += "<tr>\n" +
-                    "            <td>"+ data[i].title +"</td>\n" +
-                    "            <td>"+ data[i].quantity +"</td>\n" +
-                    "            <td>"+ data[i].price +"</td>\n" +
-                    "            <td>"+ data[i].categories +"</td>\n" +
-                    "        </tr>"
+                    "<td>"+ data[i].title +"</td>\n" +
+                    "<td>"+ data[i].quantity +"</td>\n" +
+                    "<td>"+ data[i].price +"</td>\n" +
+                    "<td>"+ data[i].categories +"</td>\n" +
+                    "</tr>"
             };
             $("#insertProducts").append(finalHTML);
 
