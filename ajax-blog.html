@@ -3,16 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <title>Ajax Blog</title>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 </head>
 <body>
+    <div class="container">
+        <h1>Ally's Blog</h1>
+        <hr>
+        <div id="posts">
 
-    <h1>Ally's Blog</h1>
-    <hr>
-    <div id="posts">
-
+        </div>
     </div>
 
-<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <!-- jQuery and Bootstrap Script -->
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 
     <script>
         $(document).ready(function () {
@@ -25,10 +31,10 @@
                     console.log(data);
                     for(var i = 0; i < data.length; i++) {
                         finalHTML += "<h2>"+ data[i].title +"</h2>\n" +
-                            "        <h3>"+ data[i].date +"</h3>\n" +
-                            "        <p>"+ data[i].content +"</p>\n" +
-                            "        <p>"+ data[i].categories +"</p>\n" +
-                            "        <hr>"
+                            "            <p class=\"text-muted\">"+ data[i].date +"</p>\n" +
+                            "            <p>"+ data[i].content +"</p>\n" +
+                            "            <a href=\"#\">"+ data[i].categories +"</a>\n" +
+                            "            <hr>"
                     };
                     $("#posts").append(finalHTML);
 
