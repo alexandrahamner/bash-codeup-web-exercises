@@ -70,9 +70,10 @@
     <script>
         $(document).ready(function () {
             // Retrieves data from data/blog.json
-            var finalHTML = "";
+
             $.ajax("data/blog.json")
                 .done(function (data) {
+                    var finalHTML = "";
                     console.log("Data: ");
                     console.log(data);
                     for(var i = 0; i < data.length; i++) {
