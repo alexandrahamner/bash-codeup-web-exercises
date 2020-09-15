@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather Map</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/weather_custom_styling.css">
+</head>
+<body>
+    <!--container for the whole page -->
+    <div class="container">
+        <div id="map-container"></div>
+            <div id="search-bar"></div>
+            <div id="map"></div>
+        <div id="current-container"></div>
+            <div id="current-header"></div>
+            <div id="current-weather"></div>
+        <div id="forecast-container"></div>
+            <div id="forecast-header"></div>
+            <div id="daily-forecast">
+                <div id="day-1"></div>
+                <div id="day-2"></div>
+                <div id="day-3"></div>
+                <div id="day-4"></div>
+                <div id="day-5"></div>
+                <div id="graphic"></div>
+            </div>
+    </div>
+
+<!--Bootstrap and jQuery Script-->
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+<!--Custom Script-->
+<script src="js/keys.js"></script>
+<script src="js/weather_custom_script.js"></script>
+</body>
+</html>
