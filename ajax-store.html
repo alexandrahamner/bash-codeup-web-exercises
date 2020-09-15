@@ -57,7 +57,7 @@
         //       HINT: Your data should come back as a JSON object; use console.log() to inspect
         //             its contents and fields
         //       HINT: You will want to target #insertProducts for your new HTML elements
-
+        //       Might be helpful to put url in a variable
 
 
     function loadInventory () {
@@ -65,11 +65,13 @@
             .done(function (data) {
                 var finalHTML = "";
                 $("#insertProducts").empty();
+                //You could also use a forEach Loop
+                // data.forEach(function(tool) {})
                 for (var i = 0; i < data.length; i++) {
                     finalHTML += "<tr>\n" +
                         "<td>" + data[i].title + "</td>\n" +
                         "<td>" + data[i].quantity + "</td>\n" +
-                        "<td>" + data[i].price + "</td>\n" +
+                        "<td>$" + data[i].price + "</td>\n" +
                         "<td>"
                     var categoryItem = "";
                     for (var x = 0; x < data[i].categories.length; x++) {
