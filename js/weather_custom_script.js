@@ -24,17 +24,22 @@
 
 
 
-    var weatherURL = "https://api.openweathermap.org/data/2.5/forecast";
+    var forecastURL = "https://api.openweathermap.org/data/2.5/forecast";
+    var weatherURL = "https://api.openweathermap.org/data/2.5/weather";
+
+
+        /*     Below is the function to return the 5day forecast     */
 
     function getForecast(lng,lat) {
-        $.get(weatherURL, {
+        $.get(forecastURL, {
             "APPID": Open_Weather_APIID,
             "lon": lng,
             "lat": lat,
             "units": "imperial"
         }).done(function (data) {
+            console.log(data);
             for (var i = 0; i <= data.list.length - 1; i += 8) {
-                var date = data.list[i].dt_txt
+                var date = data.list[i].dt_txt.substring(5,10).split("-").join("/");
                 var description = data.list[i].weather[0].description;
                 var maxTemp = data.list[i].main.temp_max.toString();
                 var minTemp = data.list[i].main.temp_min.toString();
@@ -44,7 +49,7 @@
                 var finalHtml = "";
 
                 finalHtml +=
-                    "<div id=card-container class=\"my-2 col-12 col-md-6 col-lg-4\">\n" +
+                    "<div id=card-container class=\"my-2 col-12 col-md-6 col-lg-4 text-center\">\n" +
                     "<div id=day-card class=\"card daily-card\">\n" +
                     "<div class=\"card-header date\">\n" + date + " </div>\n" +
                     "<div class =\"card-body\">\n" +
@@ -63,11 +68,37 @@
         })
     }
 
-    getForecast( -96.79,32.77,);
+    getForecast( -96.79,32.77);
 
+    /*     Below is the function to return the current weather     */
 
+    function getCurrentWeather(lng,lat) {
+        $.get(weatherURL, {
+            "APPID": Open_Weather_APIID,
+            "lon": lng,
+            "lat": lat,
+            "units": "imperial"
+        }).done(function (data) {
+            console.log(data);
+            var today = new Date();
+            var date = today.getDate() + '/' + (today.getMonth()+1) + '/' + today.getFullYear();
+            var temp = data.main.temp;
+            var description = data.weather[0].description;
+            var wind = data.wind.speed;
 
+            var finalHtml =
+                "<div class=\"current-date\"><h2>"+ date +"</h2></div>\n" +
+                "<hr>\n" +
+                "<div class=\"current-temp\"><h3>"+ temp +"</h3></div>\n" +
+                "<div class=\"current-description\"><h4>" + description +"</h4></div>\n" +
+                "<div class=\"current-wind\"><h4>"+ wind +"</h4></div>\n"
 
+            $('.current-container').append(finalHtml);
+
+        })
+    }
+
+getCurrentWeather(-96.79,32.77);
 
 
 }());
