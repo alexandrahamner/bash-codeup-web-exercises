@@ -6,24 +6,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Weather Map</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/005a2c3e85.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/weather_custom_styling.css">
 </head>
 <body>
     <!--container for the whole page -->
     <div class="container">
-        <div class="row">
-            <div class="search-bar col-12 border border-dark">
-                    <form class="form-group mx-auto" >
-                        <input class="form-control mt-3 mb-1" type="search" placeholder="Enter Zipcode" aria-label="Search">
-                        <button class="btn btn-dark btn-block mb-2" type="submit">Search</button>
-                    </form>
+        <nav class="mt-5">
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                <a class="nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Map</a>
+                <a class="nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Current</a>
+                <a class="nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Forecast</a>
             </div>
-            <div id='map' class="map-container col-12 bg-secondary border-right border-left border-dark" style='width: 400px; height: 300px;'></div>
-            <div class="current-header col-12 bg-primary border border-dark">current header</div>
-            <div class="current-weather col-12 bg-secondary border border-dark">current weather</div>
-            <div class="forecast-header col-12 bg-primary border border-dark">forecast header</div>
-            <div class="forecast col-12 bg-secondary border border-dark">forecast</div>
-
+        </nav>
+        <div class="tab-content" id="nav-tabContent">
+            <!-- Map Contents -->
+            <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                <nav class="navbar navbar-light bg-light">
+                    <form class="form-inline">
+                        <input id="userInput" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                        <button id="userSubmit" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    </form>
+                </nav>
+                <div id='map' style='width: 100%; height: 600px;'></div>
+            </div>
+            <!-- Current Weather Contents -->
+            <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">...</div>
+            <!-- Forecast Contents -->
+            <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+                <div class="row">
+                    <div class="col card">day 1</div>
+                    <div class="col card">day 2</div>
+                    <div class="col card">day 3</div>
+                    <div class="col card">day 4</div>
+                    <div class="col card">day 5</div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -35,17 +53,7 @@
     <script src="js/keys.js"></script>
     <script src='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet' />
-    <script>
-
-        var accessToken = mapboxToken
-        mapboxgl.accessToken = accessToken;
-        var map = new mapboxgl.Map({
-            container: 'map',
-            style: 'mapbox://styles/mapbox/streets-v11', // stylesheet location
-            center: [-74.5, 40], // starting position [lng, lat]
-            zoom: 9 // starting zoom
-        });
-    </script>
+    <script src="js/mapbox-geocoder-utils.js"></script>
 
     <!--Custom Script-->
 
