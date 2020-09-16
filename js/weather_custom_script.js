@@ -1,28 +1,42 @@
 "use strict";
 (function () {
-    mapboxgl.accessToken = mapboxToken;
 
-    var map = new mapboxgl.Map({
+
+    mapboxgl.accessToken = mapboxToken;
+    let map = new mapboxgl.Map({
         container: 'map',
-        style: 'mapbox://styles/mapbox/dark-v10', // stylesheet location
-        center: [-98, 40], // starting position [lng, lat]
-        zoom: 3// starting zoom
+        style: 'mapbox://styles/mapbox/streets-v11', // stylesheet location
+        center: [-96.94, 32.82], // starting position [lng, lat]
+        zoom: 12,  // starting zoom
+
     });
 
 
+    function searchFor(location) {
 
-    // var userInput =
-    // function searchLocation(string) {
-    //     geocode(string, mapboxToken)
-    //         // .then(function(result) {
-    //         //     getWeather(result[0],result[1]);
-    //         //     return result;
-    //         .then(function (data) {
-    //
-    //         })
-    // }
+        geocode(location, mapboxToken)
+            .then(function (result) {
+                getCurrentWeather(result[0], result[1]);
+                getForecast(result[0], result[1]);
+                return result;
+            }).then(function (data) {
+            map.flyTo({center: data, zoom: 12});
 
+            var marker = new mapboxgl.Marker({
+                draggable: true})
+                .setLngLat(data)
+                .addTo(map);
 
+        });
+    }
+
+    $("#userSubmit").click(function (e) {
+        e.preventDefault();
+        var location = $("#userInput").val().trim();
+        if (location !== "") {
+            searchFor(location);
+        }
+    });
 
     var forecastURL = "https://api.openweathermap.org/data/2.5/forecast";
     var weatherURL = "https://api.openweathermap.org/data/2.5/weather";
@@ -38,6 +52,7 @@
             "units": "imperial"
         }).done(function (data) {
             console.log(data);
+            $(".forecast-row").empty();
             for (var i = 0; i <= data.list.length - 1; i += 8) {
                 var date = data.list[i].dt_txt.substring(5,10).split("-").join("/");
                 var description = data.list[i].weather[0].description;
@@ -68,7 +83,7 @@
         })
     }
 
-    getForecast( -96.79,32.77);
+    // getForecast( -96.79,32.77);
 
     /*     Below is the function to return the current weather     */
 
@@ -80,6 +95,7 @@
             "units": "imperial"
         }).done(function (data) {
             console.log(data);
+            $(".current-container").empty();
             var today = new Date();
             var date = today.getDate() + '/' + (today.getMonth()+1) + '/' + today.getFullYear();
             var temp = data.main.temp;
@@ -98,7 +114,7 @@
         })
     }
 
-getCurrentWeather(-96.79,32.77);
+// getCurrentWeather(-96.79,32.77);
 
 
 }());
