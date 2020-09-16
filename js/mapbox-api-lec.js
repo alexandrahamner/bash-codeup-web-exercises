@@ -1,7 +1,7 @@
 /**********************************************
  * 			SETTING UP KEYS.JS
  *********************************************/
-// TODO TOGETHER: Open .gitignore and add keys.js. Add keys.js file and import to mapbox html file. Your api keys are stored in keys.js and are added to the .gitignore so they are protected
+// TODO TOGETHER: Open .gitignore and add keys.js.gitignore. Add keys.js.gitignore file and import to mapbox html file. Your api keys are stored in keys.js.gitignore and are added to the .gitignore so they are protected
 
 /**********************************************
  * 			CUSTOMIZING THE MAP
