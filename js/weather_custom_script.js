@@ -123,11 +123,11 @@
             var finalHtml =
             "<h4 class=\"card-title font-weight-bold\">"+ city +"</h4>\n" +
             "<p class=\"text-muted\">" + date + ", time, " + description + "</p>" +
-            "<div class=\"d-flex justify-content-between\">" +
-            "<p class=\"display-1 degree\">"+ temp +"<span class=\"display-4 fahrenheit\">°F<span></span></p>\n" +
-            "<div id=\"icon\"><img id=\"wicon\" src=\"\" alt=\"Weather icon\"></div>" +
-            "</div>\n" +
-            "<div class=\"d-flex justify-content-between mb-4\">\n" +
+            "<div class='d-flex flex-column align-items-center'>" +
+            "<div id=\"icon\"><img id=\"wicon\" src=\"\" alt=\"Weather icon\" ></div>" +
+            "<p class=\"display-3 degree\">"+ temp +"<span class=\"fahrenheit align-text-top\">°F</span></p>\n" +
+            "</div>" +
+            "<div class=\"d-md-flex justify-content-between mb-4\">\n" +
             "<p><i class=\"fas fa-tint fa-lg text-info pr-2\"></i>Humidity: "+ humidity +"%</p>\n" +
             "<p><i class=\"fas fa-leaf fa-lg grey-text pr-2\"></i>Winds: "+ wind +"mph</p>\n" +
             "</div>"
