@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <script src="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js"></script>
     <link href="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand&family=Raleway:wght@200&display=swap"
+          rel="stylesheet">
     <script src="https://kit.fontawesome.com/005a2c3e85.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/weather_custom_styling.css">
 </head>
@@ -20,28 +22,26 @@
 />
 
 
-<div class="container">
-    <div class="card weather-card">
-        <div class="card-body pb-3">
-            <div class="current-container">
+    <div class="container">
+            <div class="card weather-card box-shadow-custom">
+                <div class="card-body pb-3">
+                    <div class="input-group box-shadow-custom">
+                        <input id="userInput" class="form-control raleway" type="search" placeholder="Search" aria-label="Search">
+                        <div class="input-group-append"><button id="userSubmit" class="btn btn-dark" type="submit"><i class="fas fa-search"></i></button></div>
+                    </div>
+                    <div class="mx-auto box-shadow-custom" id='map'></div>
+                    <div class="current-container p-3">
+                        <!-- current content goes here -->
+                    </div>
+                    <div class="forecast-container">
 
+                        <!-- forecast content goes here -->
+                    </div>
+
+                    <hr>
+                    <button class="btn collapse-button btn-dark mb-5 box-shadow-custom raleway">5-Day Forecast</button>
+                </div>
             </div>
-            <div class="forecast-container">
-                <!-- forecast content goes here -->
-            </div>
-
-            <hr>
-            <button class="btn collapse-button mb-5">5-Day Forecast</button>
-
-            <nav class="navbar navbar-light bg-light">
-                    <form class="form-inline">
-                            <input id="userInput" class="form-control" type="search" placeholder="Search" aria-label="Search">
-                            <button id="userSubmit" class="btn btn-outline-success" type="submit"><i class=""></button>
-                    </form>
-            </nav>
-            <div class="mb-3 card" id='map' style='width: 100%; height: 400px;'>
-
-        </div>
     </div>
 
     <!--Bootstrap and jQuery Script-->
@@ -58,6 +58,7 @@
         $(".collapse-button").click(function () {
             $(".forecast-container").slideToggle("slow");
         })
+
     </script>
 </body>
 </html>
