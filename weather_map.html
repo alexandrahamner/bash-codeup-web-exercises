@@ -20,30 +20,26 @@
 />
 
 
-<div class="container">
-    <div class="card weather-card custom-border my-5">
-        <div class="card-body pb-3">
-            <div class="card-header custom-border">Doodle Weather</div>
-            <div class="current-container custom-border p-3">
-                <!-- current content goes here -->
+    <div class="container">
+            <div class="card weather-card">
+                <div class="card-body pb-3">
+                    <div class="input-group">
+                        <input id="userInput" class="form-control" type="search" placeholder="Search" aria-label="Search">
+                        <div class="input-group-append"><button id="userSubmit" class="btn btn-primary" type="submit"><i class="fas fa-search"></i></button></div>
+                    </div>
+                    <div class="mx-auto" id='map'></div>
+                    <div class="current-container p-3">
+                        <!-- current content goes here -->
+                    </div>
+                    <div class="forecast-container">
+
+                        <!-- forecast content goes here -->
+                    </div>
+
+                    <hr>
+                    <button class="btn collapse-button mb-5">5-Day Forecast</button>
+                </div>
             </div>
-            <div class="forecast-container custom-border">
-                <!-- forecast content goes here -->
-            </div>
-
-            <hr>
-            <button class="btn collapse-button mb-5">5-Day Forecast</button>
-
-
-            <nav class="navbar navbar-light bg-light">
-                        <div class="input-group mb-3">
-                            <input id="userInput" class="form-control custom-border" type="search" placeholder="Search" aria-label="Search">
-                            <div class="input-group-append"><button id="userSubmit" class="btn btn-primary" type="submit"><i class="fas fa-search"></i></button></div>
-                        </div>
-            </nav>
-            <div class="mb-3 card" id='map' style='width: 100%; height: 400px;'>
-
-        </div>
     </div>
 
     <!--Bootstrap and jQuery Script-->
@@ -60,6 +56,7 @@
         $(".collapse-button").click(function () {
             $(".forecast-container").slideToggle("slow");
         })
+
     </script>
 </body>
 </html>

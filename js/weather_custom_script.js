@@ -82,7 +82,7 @@
                 var finalHtml = "";
 
                 finalHtml +=
-                    "<div id=day-card class=\"card daily-card\">\n" +
+                    "<div class=\"card daily-card\">\n" +
                     "<div class=\"card-header date\">\n" + date + " </div>\n" +
                     "<div class =\"card-body\">\n" +
                     "<div class=\"description\">\n" + description + "</div>\n" +
@@ -90,7 +90,8 @@
                     "<div class=\"feel-like\"> It'll feel like: " + feelsLike + "°F </div>\n" +
                     "<div class=\"humidity\">Humidity: " + humidity + "</div>\n" +
                     "<div class=\"wind\">Wind Speed: " + wind + "</div>\n" +
-                    "</div>\n"
+                    "</div>"
+
 
 
                 $('.forecast-container').append(finalHtml);
@@ -114,7 +115,7 @@
             var today = new Date();
             var date = (today.getMonth()+1) + '/' + today.getDate() + '/' + today.getFullYear();
             var city = data.name;
-            var temp = data.main.temp;
+            var temp = Math.round(data.main.temp);
             var description = data.weather[0].description;
             var iconcode = "https://openweathermap.org/img/wn/" + data.weather[0].icon + "@2x.png";
             var wind = data.wind.speed;
@@ -123,11 +124,11 @@
             var finalHtml =
             "<h4 class=\"card-title font-weight-bold\">"+ city +"</h4>\n" +
             "<p class=\"text-muted\">" + date + ", time, " + description + "</p>" +
-            "<div class='d-flex flex-column align-items-center'>" +
+            "<div class='d-flex flex-column'>" +
             "<div id=\"icon\"><img id=\"wicon\" src=\"\" alt=\"Weather icon\" ></div>" +
             "<p class=\"display-3 degree\">"+ temp +"<span class=\"fahrenheit align-text-top\">°F</span></p>\n" +
             "</div>" +
-            "<div class=\"d-md-flex justify-content-between mb-4\">\n" +
+            "<div class=\"mb-4\">\n" +
             "<p><i class=\"fas fa-tint fa-lg text-info pr-2\"></i>Humidity: "+ humidity +"%</p>\n" +
             "<p><i class=\"fas fa-leaf fa-lg grey-text pr-2\"></i>Winds: "+ wind +"mph</p>\n" +
             "</div>"
