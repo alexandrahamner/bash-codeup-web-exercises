@@ -5,7 +5,7 @@
     mapboxgl.accessToken = mapboxToken;
     let map = new mapboxgl.Map({
         container: 'map',
-        style: 'mapbox://styles/mapbox/streets-v11', // stylesheet location
+        style: 'mapbox://styles/mapbox/dark-v10', // stylesheet location
         center: [-96, 37.8], // starting position [lng, lat]
         zoom: 3,  // starting zoom
 
@@ -74,22 +74,20 @@
             for (var i = 0; i <= data.list.length - 1; i += 8) {
                 var date = data.list[i].dt_txt.substring(5,10).split("-").join("-");
                 var description = data.list[i].weather[0].description;
-                var maxTemp = data.list[i].main.temp_max.toString();
-                var minTemp = data.list[i].main.temp_min.toString();
-                var feelsLike = data.list[i].main.feels_like.toString();
+                var maxTemp = Math.round(data.list[i].main.temp_max);
+                var minTemp = Math.round(data.list[i].main.temp_min);
                 var humidity = data.list[i].main.humidity;
                 var wind = data.list[i].wind.speed;
                 var finalHtml = "";
 
                 finalHtml +=
-                    "<div class=\"card daily-card\">\n" +
-                    "<div class=\"card-header date\">\n" + date + " </div>\n" +
-                    "<div class =\"card-body\">\n" +
+                    "<div class=\"card daily-card mb-2 border-none box-shadow-custom\">\n" +
+                    "<div class=\"card-header bg-dark text-white date quicksand\">\n" + date + " </div>\n" +
+                    "<div class =\"card-body raleway\">\n" +
                     "<div class=\"description\">\n" + description + "</div>\n" +
-                    "<div class=\"temp\">\n" + "High of " + maxTemp +  "°F & Low of " + minTemp + "°F </div>\n" +
-                    "<div class=\"feel-like\"> It'll feel like: " + feelsLike + "°F </div>\n" +
-                    "<div class=\"humidity\">Humidity: " + humidity + "</div>\n" +
-                    "<div class=\"wind\">Wind Speed: " + wind + "</div>\n" +
+                    "<div class=\"temp\">\n" + maxTemp +  "°F / " + minTemp + "°F </div>\n" +
+                    "<div class=\"humidity\">Humidity: " + humidity + "%</div>\n" +
+                    "<div class=\"wind\">Wind Speed: " + wind + " mph</div>\n" +
                     "</div>"
 
 
@@ -113,24 +111,24 @@
             console.log(data);
             $(".current-container").empty();
             var today = new Date();
+            var time = today.getHours() + ":" + today.getMinutes()
             var date = (today.getMonth()+1) + '/' + today.getDate() + '/' + today.getFullYear();
             var city = data.name;
             var temp = Math.round(data.main.temp);
-            var description = data.weather[0].description;
             var iconcode = "https://openweathermap.org/img/wn/" + data.weather[0].icon + "@2x.png";
             var wind = data.wind.speed;
             var humidity = data.main.humidity;
 
             var finalHtml =
-            "<h4 class=\"card-title font-weight-bold\">"+ city +"</h4>\n" +
-            "<p class=\"text-muted\">" + date + ", time, " + description + "</p>" +
+            "<h3 class=\"card-title quicksand font-weight-bold\">"+ city +"</h3>\n" +
+            "<h5 class=\"text-muted raleway\">" + time + " " + date + "</h5>" +
             "<div class='d-flex flex-column'>" +
             "<div id=\"icon\"><img id=\"wicon\" src=\"\" alt=\"Weather icon\" ></div>" +
-            "<p class=\"display-3 degree\">"+ temp +"<span class=\"fahrenheit align-text-top\">°F</span></p>\n" +
+            "<p class=\"display-3 degree quicksand\">"+ temp +"<span class=\"fahrenheit align-text-top\">°F</span></p>\n" +
             "</div>" +
             "<div class=\"mb-4\">\n" +
-            "<p><i class=\"fas fa-tint fa-lg text-info pr-2\"></i>Humidity: "+ humidity +"%</p>\n" +
-            "<p><i class=\"fas fa-leaf fa-lg grey-text pr-2\"></i>Winds: "+ wind +"mph</p>\n" +
+            "<p class='raleway'><i class=\"fas fa-tint fa-lg text-info pr-2\"></i>Humidity: "+ humidity +"%</p>\n" +
+            "<p class='raleway'><i class=\"fas fa-leaf fa-lg grey-text pr-2\"></i>Winds: "+ wind +"mph</p>\n" +
             "</div>"
 
             $('.current-container').append(finalHtml);
