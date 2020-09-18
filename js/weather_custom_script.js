@@ -1,7 +1,6 @@
 "use strict";
 (function () {
-
-
+    //Creating the Mapbox Map
     mapboxgl.accessToken = mapboxToken;
     let map = new mapboxgl.Map({
         container: 'map',
@@ -11,7 +10,7 @@
 
     });
 
-
+    //Searches for and places a marker on the location the user types in by using geocoding. The marker is also draggable.
     function searchLocation(location) {
 
         geocode(location, mapboxToken)
@@ -23,13 +22,12 @@
             map.flyTo({
                 center: data,
                 zoom: 11});
-
             var marker = new mapboxgl.Marker({
                 draggable: true,
             })
                 .setLngLat(data)
                 .addTo(map);
-
+            //allows user to drag the marker
             function dragMarker() {
                 var dragLocation = marker.getLngLat();
                 getCurrentWeather(dragLocation.lng, dragLocation.lat);
@@ -45,23 +43,27 @@
         });
     }
 
+    //default location when the page loads
     searchLocation("San Antonio, TX");
 
+    //retrieves the user's input in the search bar
     $("#userSubmit").click(function (e) {
         e.preventDefault();
         var location = $("#userInput").val().trim();
+        //making sure the search isn't empty
         if (location !== "") {
             searchLocation(location);
         }
     });
 
+
+    //Links to get the forecast and current weather
     var forecastURL = "https://api.openweathermap.org/data/2.5/forecast";
     var weatherURL = "https://api.openweathermap.org/data/2.5/weather";
 
 
 
-        /*     Below is the function to return the 5day forecast     */
-
+    /*     Below is the function to return the 5day forecast     */
     function getForecast(lng,lat) {
         $.get(forecastURL, {
             "APPID": Open_Weather_APIID,
@@ -69,7 +71,7 @@
             "lat": lat,
             "units": "imperial"
         }).done(function (data) {
-            console.log(data);
+            //everytime the location changes, it refreshes the container.
             $(".forecast-container").empty();
             for (var i = 0; i <= data.list.length - 1; i += 8) {
                 var date = data.list[i].dt_txt.substring(5,10).split("-").join("-");
@@ -81,26 +83,29 @@
                 var finalHtml = "";
 
                 finalHtml +=
-                    "<div class=\"card daily-card mb-2 border-none box-shadow-custom\">\n" +
-                    "<div class=\"card-header bg-dark text-white date quicksand\">\n" + date + " </div>\n" +
-                    "<div class =\"card-body raleway\">\n" +
-                    "<div class=\"description\">\n" + description + "</div>\n" +
-                    "<div class=\"temp\">\n" + maxTemp +  "°F / " + minTemp + "°F </div>\n" +
-                    "<div class=\"humidity\">Humidity: " + humidity + "%</div>\n" +
-                    "<div class=\"wind\">Wind Speed: " + wind + " mph</div>\n" +
+                    "<div class=\"card daily-card mb-2 border-none box-shadow-custom\">" +
+                    "<div class=\"card-header bg-dark text-white date quicksand\">\n" + date + " </div>" +
+                    "<div class =\"card-body raleway\">" +
+                    "<div class=\"description\">" + description + "</div>" +
+                    "<div class=\"temp\">" + maxTemp +  "°F / " + minTemp + "°F </div>" +
+                    "<div class=\"humidity\">Humidity: " + humidity + "%</div>" +
+                    "<div class=\"wind\">Wind Speed: " + wind + " mph</div>" +
                     "</div>"
 
 
-
+                //adds each card to the forecast container
                 $('.forecast-container').append(finalHtml);
             }
 
         })
     }
 
+    // collapsible 5day forecast button, with a slide toggle.
+    $(".collapse-button").click(function () {
+        $(".forecast-container").slideToggle("slow");
+    })
 
     /*     Below is the function to return the current weather     */
-
     function getCurrentWeather(lng,lat) {
         $.get(weatherURL, {
             "APPID": Open_Weather_APIID,
@@ -108,7 +113,6 @@
             "lat": lat,
             "units": "imperial"
         }).done(function (data) {
-            console.log(data);
             $(".current-container").empty();
             var today = new Date();
             var time = today.getHours() + ":" + today.getMinutes()
@@ -120,22 +124,20 @@
             var humidity = data.main.humidity;
 
             var finalHtml =
-            "<h3 class=\"card-title quicksand font-weight-bold\">"+ city +"</h3>\n" +
-            "<h5 class=\"text-muted raleway\">" + time + " " + date + "</h5>" +
-            "<div class='d-flex flex-column'>" +
-            "<div id=\"icon\"><img id=\"wicon\" src=\"\" alt=\"Weather icon\" ></div>" +
-            "<p class=\"display-3 degree quicksand\">"+ temp +"<span class=\"fahrenheit align-text-top\">°F</span></p>\n" +
-            "</div>" +
-            "<div class=\"mb-4\">\n" +
-            "<p class='raleway'><i class=\"fas fa-tint fa-lg text-info pr-2\"></i>Humidity: "+ humidity +"%</p>\n" +
-            "<p class='raleway'><i class=\"fas fa-leaf fa-lg grey-text pr-2\"></i>Winds: "+ wind +"mph</p>\n" +
-            "</div>"
+                "<h3 class=\"card-title quicksand font-weight-bold\">"+ city +"</h3>" +
+                "<h5 class=\"text-muted raleway\">" + time + " " + date + "</h5>" +
+                "<div class='d-flex flex-column'>" +
+                "<div id=\"icon\"><img id=\"wicon\" src=\"\" alt=\"Weather icon\" ></div>" +
+                "<p class=\"display-3 degree quicksand\">"+ temp +"<span class=\"fahrenheit align-text-top\">°F</span></p>" +
+                "</div>" +
+                "<div class=\"mb-4\">" +
+                "<p class='raleway'><i class=\"fas fa-tint fa-lg text-info pr-2\"></i>Humidity: "+ humidity +"%</p>" +
+                "<p class='raleway'><i class=\"fas fa-leaf fa-lg grey-text pr-2\"></i>Winds: "+ wind +"mph</p>" +
+                "</div>"
 
             $('.current-container').append(finalHtml);
             $('#wicon').attr('src', iconcode);
         })
     }
-
-
 
 }());

@@ -30,12 +30,19 @@ body {
 .weather-card {
     background: linear-gradient(-45deg, #ee7752, #e3c7fd, #23d5ab);
     background-size: 400% 400%;
+    /*animation name, duration , timing function, iteration count */
+    /*Ease: Equal to cubic-bezier(0.25, 0.1, 0.25, 1.0), the default value,
+    increases in velocity towards the middle of the animation,
+    slowing back down at the end.*/
     animation: gradient 15s ease infinite;
     border: none;
     border-radius: 2%;
 }
 
 
+/*The @keyframes CSS at-rule controls the intermediate steps in a
+CSS animation sequence by defining styles for keyframes (or waypoints) along the animation sequence.
+This gives more control over the intermediate steps of the animation sequence than transitions.*/
 @keyframes gradient {
     0% {
         background-position: 0% 50%;
@@ -46,6 +53,14 @@ body {
     100% {
         background-position: 0% 50%;
     }
+}
+
+#map {
+    width:300px;
+    height: 300px;
+    border-radius: 50%;
+    border: white solid 4px;
+    margin-top: 2em;
 }
 
 .current-container {
@@ -62,13 +77,6 @@ body {
     border: none;
 }
 
-#map {
-    width:300px;
-    height: 300px;
-    border-radius: 50%;
-    border: white solid 4px;
-    margin-top: 2em;
-}
 @media screen and (min-width:1200px) {
 
     .container {
