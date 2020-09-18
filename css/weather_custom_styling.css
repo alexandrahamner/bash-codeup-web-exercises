@@ -56,8 +56,8 @@ This gives more control over the intermediate steps of the animation sequence th
 }
 
 #map {
-    width:300px;
-    height: 300px;
+    width:250px;
+    height: 250px;
     border-radius: 50%;
     border: white solid 4px;
     margin-top: 2em;
@@ -77,6 +77,12 @@ This gives more control over the intermediate steps of the animation sequence th
     border: none;
 }
 
+@media screen and (min-width:375px) {
+    #map {
+        width: 300px;
+        height: 300px;
+    }
+}
 @media screen and (min-width:1200px) {
 
     .container {
