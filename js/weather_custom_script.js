@@ -115,7 +115,7 @@
         }).done(function (data) {
             $(".current-container").empty();
             var today = new Date();
-            var time = today.getHours() + ":" + today.getMinutes()
+            var time = today.toLocaleString('en-US', { hour: 'numeric', hour12: true, minute: 'numeric' })
             var date = (today.getMonth()+1) + '/' + today.getDate() + '/' + today.getFullYear();
             var city = data.name;
             var temp = Math.round(data.main.temp);
@@ -125,7 +125,7 @@
 
             var finalHtml =
                 "<h3 class=\"card-title quicksand font-weight-bold\">"+ city +"</h3>" +
-                "<h5 class=\"text-muted raleway\">" + time + " " + date + "</h5>" +
+                "<h5 class=\"text-muted raleway\">" + date + "<br>" + time + "</h5>" +
                 "<div class='d-flex flex-column'>" +
                 "<div id=\"icon\"><img id=\"wicon\" src=\"\" alt=\"Weather icon\" ></div>" +
                 "<p class=\"display-3 degree quicksand\">"+ temp +"<span class=\"fahrenheit align-text-top\">°F</span></p>" +
