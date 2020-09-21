@@ -1,17 +1,3 @@
-
-
-
-//     fetch(url, {headers: {'Authorization': 'token b5dc99563baece3d245c9f3d77c758155e8fbe5f'}})
-//         .then(response => response.json())
-//         .then(users => {
-//             users.forEach(userObj => {
-//                 usernames.push(userObj.login);
-//             })
-//         })
-//         .catch(error => console.error(error));
-//
-// console.log(usernames);
-
 function getLastCommit (username) {
     let url = ("https://api.github.com/users/" + username + "/events/public");
     fetch(url, {headers: {'Authorization': 'token b5dc99563baece3d245c9f3d77c758155e8fbe5f'}})
@@ -28,10 +14,6 @@ function getLastCommit (username) {
 }
 
 getLastCommit("alexandrahamner");
-
-
-
-
 
 ///users/:username/events/public
 
