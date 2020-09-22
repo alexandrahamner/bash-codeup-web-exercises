@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Restful</title>
+</head>
+<body>
+
+
+<script>
+    const reviewObj = {
+        "restaurant_id": 1,
+        "name": "Ally",
+        "rating": 5,
+        "comments": "The food was delicious!"
+    }
+
+    const url =
+        'https://codeup-restful-example.glitch.me/reviews'
+
+    const options = {
+        "method": "POST",
+        "headers": {
+            'Content-Type' : 'application/json'
+        },
+        "body": JSON.stringify(reviewObj)
+    };
+
+    fetch(url, options)
+    .then(response => console.log(response))
+    .catch(errors => console.log(errors));
+
+
+
+</script>
+
+</body>
+</html>
