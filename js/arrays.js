@@ -1,3 +1,4 @@
+"use strict";
 (function() {
 
     //Initiating the array.
@@ -63,4 +64,4 @@
         console.log("I have a tasty pizza with " + x.join(" and ") + ".");
     }
     makePizza(toppings);
-})
+})();
