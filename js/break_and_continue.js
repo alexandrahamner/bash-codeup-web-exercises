@@ -1,7 +1,7 @@
 "use strict";
 (function () {
 
-    var userNumber;
+    let userNumber;
     //continues to prompt the user until a number between 1 and 50 is submitted.
     while (true) {
             userNumber = parseInt(prompt("Please submit an odd number between 1 and 50."));
@@ -10,7 +10,7 @@
             }
         }
     //Loops through the numbers 1 - 50, console.logs "skip" on the user's chosen number.
-    for (var x = 1; x <= 49; x += 2) {
+    for (let x = 1; x <= 49; x += 2) {
         if (x === userNumber) {
             console.log("Yikes! Skipping: " + userNumber);
             continue;
