@@ -82,15 +82,14 @@
                 var wind = data.list[i].wind.speed;
                 var finalHtml = "";
 
-                finalHtml +=
-                    "<div class=\"card daily-card mb-2 border-none box-shadow-custom\">" +
-                    "<div class=\"card-header bg-dark text-white date quicksand\">\n" + date + " </div>" +
-                    "<div class =\"card-body raleway\">" +
-                    "<div class=\"description\">" + description + "</div>" +
-                    "<div class=\"temp\">" + maxTemp +  "°F / " + minTemp + "°F </div>" +
-                    "<div class=\"humidity\">Humidity: " + humidity + "%</div>" +
-                    "<div class=\"wind\">Wind Speed: " + wind + " mph</div>" +
-                    "</div>"
+                finalHtml += `<div class= "card daily-card mb-2 border-none box-shadow-custom">`
+                finalHtml += `<div class= "card-header bg-dark text-white date quicksand">${date}</div>`
+                finalHtml += `<div class = "card-body raleway">`
+                finalHtml += `<div class= "description">${description}</div>`
+                finalHtml += `<div class= "temp">"${maxTemp}°F / ${minTemp}°F </div>`
+                finalHtml += `<div class= "humidity">Humidity: ${humidity}%</div>`
+                finalHtml += `<div class= "wind">Wind Speed: ${wind} mph</div>`
+                finalHtml += `</div>`
 
 
                 //adds each card to the forecast container
