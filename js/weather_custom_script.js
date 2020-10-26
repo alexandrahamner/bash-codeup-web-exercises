@@ -73,29 +73,26 @@
         }).done(function (data) {
             //everytime the location changes, it refreshes the container.
             $(".forecast-container").empty();
-            for (var i = 0; i <= data.list.length - 1; i += 8) {
-                var date = data.list[i].dt_txt.substring(5,10).split("-").join("-");
-                var description = data.list[i].weather[0].description;
-                var maxTemp = Math.round(data.list[i].main.temp_max);
-                var minTemp = Math.round(data.list[i].main.temp_min);
-                var humidity = data.list[i].main.humidity;
-                var wind = data.list[i].wind.speed;
-                var finalHtml = "";
+            for (let i = 0; i <= data.list.length - 1; i += 8) {
+                let date = data.list[i].dt_txt.substring(5, 10).split("-").join("-");
+                let description = data.list[i].weather[0].description;
+                let maxTemp = Math.round(data.list[i].main.temp_max);
+                let minTemp = Math.round(data.list[i].main.temp_min);
+                let humidity = data.list[i].main.humidity;
+                let finalHtml = "";
 
-                finalHtml += `<div class= "card daily-card mb-2 border-none box-shadow-custom">`
-                finalHtml += `<div class= "card-header bg-dark text-white date quicksand">${date}</div>`
+                finalHtml += `<div class= "card daily-card mb-2 border-none">`
                 finalHtml += `<div class = "card-body raleway">`
-                finalHtml += `<div class= "description">${description}</div>`
-                finalHtml += `<div class= "temp">"${maxTemp}°F / ${minTemp}°F </div>`
-                finalHtml += `<div class= "humidity">Humidity: ${humidity}%</div>`
-                finalHtml += `<div class= "wind">Wind Speed: ${wind} mph</div>`
+                finalHtml += `<div class= "date quicksand">${date}</div>`
+                finalHtml += `<p class= "description">${description}</p>`
+                finalHtml += `<p class= "temp">${maxTemp}°F / ${minTemp}°F </p>`
+                finalHtml += `<p class= "humidity">Humidity: ${humidity}%</p>`
+                finalHtml += `</div>`
                 finalHtml += `</div>`
 
-
                 //adds each card to the forecast container
-                $('.forecast-container').append(finalHtml);
+                $('.card-group').append(finalHtml);
             }
-
         })
     }
 
