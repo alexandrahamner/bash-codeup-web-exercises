@@ -22,7 +22,7 @@
             map.flyTo({
                 center: data,
                 zoom: 11});
-            var marker = new mapboxgl.Marker({
+            let marker = new mapboxgl.Marker({
                 draggable: true,
             })
                 .setLngLat(data)
@@ -49,7 +49,7 @@
     //retrieves the user's input in the search bar
     $("#userSubmit").click(function (e) {
         e.preventDefault();
-        var location = $("#userInput").val().trim();
+        let location = $("#userInput").val().trim();
         //making sure the search isn't empty
         if (location !== "") {
             searchLocation(location);
@@ -79,19 +79,8 @@
                 let maxTemp = Math.round(data.list[i].main.temp_max);
                 let minTemp = Math.round(data.list[i].main.temp_min);
                 let humidity = data.list[i].main.humidity;
-                let finalHtml = "";
 
-                finalHtml += `<div class= "card daily-card mb-2 border-none">`
-                finalHtml += `<div class = "card-body raleway">`
-                finalHtml += `<div class= "date quicksand">${date}</div>`
-                finalHtml += `<p class= "description">${description}</p>`
-                finalHtml += `<p class= "temp">${maxTemp}°F / ${minTemp}°F </p>`
-                finalHtml += `<p class= "humidity">Humidity: ${humidity}%</p>`
-                finalHtml += `</div>`
-                finalHtml += `</div>`
 
-                //adds each card to the forecast container
-                $('.card-group').append(finalHtml);
             }
         })
     }
